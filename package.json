@@ -1,6 +1,9 @@
 {
 	"name": "ionbot",
 	"private": true,
+	"workspaces": [
+		"packages/*"
+	],
 	"scripts": {
 		"dev:server": "lerna run dev --scope @ionapp/ion --stream",
 		"dev:client": "lerna run dev --scope dashboard",
