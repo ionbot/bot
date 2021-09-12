@@ -7,7 +7,10 @@
 		"dev": "concurrently --kill-others \"yarn dev:client\" \"yarn dev:server\""
 	},
 	"devDependencies": {
+		"@commitlint/cli": "^13.1.0",
+		"@commitlint/config-conventional": "^13.1.0",
 		"concurrently": "^6.2.1",
+		"husky": "^7.0.2",
 		"lerna": "^4.0.0"
 	}
 }
