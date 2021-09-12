@@ -1,7 +1,7 @@
 import 'colors'
 import http from 'http'
 import { RealSync } from '@realsync/server'
-import { AuthService } from './controllers/auth'
+import { AuthService } from './services/auth'
 
 const PORT = process.env.PORT || 4337
 
