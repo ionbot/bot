@@ -13,7 +13,7 @@
 		"typescript": "^4.4.3"
 	},
 	"dependencies": {
-		"@realsync/server": "^1.0.1",
+		"@realsync/server": "^2.1.2",
 		"colors": "^1.4.0",
 		"telegram": "^1.8.13"
 	}
