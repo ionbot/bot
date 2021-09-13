@@ -98,4 +98,4 @@ node_modules
 *-error.log
 .env
 
-webapp
+ion-client

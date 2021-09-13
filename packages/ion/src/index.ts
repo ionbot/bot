@@ -1,5 +1,8 @@
 import 'colors'
+import path from 'path'
 import http from 'http'
+import Koa from 'koa'
+import serve from 'koa-static'
 import { connect } from 'mongoose'
 import { RealSync } from '@realsync/server'
 import { AuthService } from './services/auth'
@@ -10,11 +13,15 @@ const { version } = require('../package.json')
 
 const PORT = process.env.PORT || 4337
 const DB_URL = process.env.DB_URL || 'mongodb://localhost/ion'
+const dashboardDir = path.join(__dirname, 'ion-client')
 
 connect(DB_URL, {})
 
-const httpServer = http.createServer()
+const koa = new Koa()
+const httpServer = http.createServer(koa.callback())
 const realsync = new RealSync(httpServer, '*')
+
+koa.use(serve(dashboardDir))
 
 // services
 realsync.register('auth/verify', AuthService)

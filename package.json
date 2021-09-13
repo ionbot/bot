@@ -5,6 +5,8 @@
 		"packages/*"
 	],
 	"scripts": {
+		"build:server": "lerna run build --scope @ionapp/ion --stream",
+		"build:client": "lerna run build --scope dashboard --stream",
 		"dev:server": "lerna run dev --scope @ionapp/ion --stream",
 		"dev:client": "lerna run dev --scope dashboard",
 		"dev": "concurrently --kill-others \"yarn dev:client\" \"yarn dev:server\""
