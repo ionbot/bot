@@ -13,13 +13,16 @@ const AuthProvider = ({ children }) => {
 	const FetchProfile = () => {
 		realsync
 			.service('user/profile')
-			.then((userProfile) => {
+			.then(async (userProfile) => {
 				if (userProfile) {
 					userProfile = JSON.parse(userProfile)
 					setProfile({ ...userProfile })
 
+					const version = await realsync.service('ion/version')
+
 					UserStore.update((s) => {
 						s.profile = userProfile
+						s.ionVersion = version
 					})
 				}
 			})
