@@ -28,6 +28,7 @@ const App = (props) => {
 						<Switch location={props.location} key={pathname}>
 							{Object.keys(Views).map((route) => (
 								<Route
+									key={route}
 									path={route}
 									exact
 									component={(props) => {
