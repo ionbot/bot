@@ -33,6 +33,7 @@ const Settings = () => {
 									width='60px'
 									textAlign='center'
 									onClick={() => i18next.changeLanguage(lang)}
+									transition='color 0.6s'
 								>
 									<Heading size='md' d='flex' alignItems='center'>
 										{lang}
