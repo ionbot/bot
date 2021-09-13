@@ -12,11 +12,6 @@ class Ion {
 	loadedModules: Meta[] = []
 	isRunning: Boolean = false
 
-	constructor() {
-		// initiate Ion
-		this.init()
-	}
-
 	match(event: NewMessageEvent, commands: string | string[]): boolean {
 		const message = event.message.message
 
