@@ -1,11 +1,18 @@
 {
+	"auth": {
+		"fetchProfile": "Fetching User Profile"
+	},
 	"setup": {
 		"title": "Ion Setup",
 		"subTitle": "Get values from my.telegram.org and fill out the form to complete Ion setup. If you've 2FA enabled, you'll be prompted.",
 
 		"apiId": "Api ID",
 		"apiHash": "Api Hash",
-		"phoneNumber": "Phone Number"
+		"phoneNumber": "Phone Number",
+
+		"success": "Success",
+		"successInfo": "Ion setup is finished, your bot should be up and running. Check by sending \".ping\" command.",
+		"greetings": "Thanks for using Ion, {{name}}."
 	},
 	"common": {
 		"verify": "Verify",

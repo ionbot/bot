@@ -1,6 +1,7 @@
 import { Client } from '@realsync/server'
 import { TelegramClient } from 'telegram'
 import { StringSession } from 'telegram/sessions'
+import { SetConfig } from '../providers/config'
 interface Credentials {
 	apiId: number
 	apiHash: string
@@ -25,11 +26,24 @@ export const AuthService = async (client: Client, credentials: Credentials) => {
 			phoneNumber: async () => phoneNumber,
 			password: async () => await client.run('setup/password'),
 			phoneCode: async () => await client.run('setup/phoneCode'),
-			onError: (err) => client.run('setup/error', err.toString()),
+			onError: (err) => {
+				// WARN: This Function Executes Infinitely
+				// client.run('setup/error', err.toString())
+			},
 		})
 
-		console.log('session', await telegramClient.session.save())
+		const session = await telegramClient.session.save()
+
+		// save all the values in the database
+		await SetConfig('__session', session)
+		await SetConfig('__apiId', String(apiId))
+		await SetConfig('__apiHash', apiHash)
+
+		const self: any = await telegramClient.getMe()
+
+		return JSON.stringify(self)
 	} catch (err: any) {
-		client.run('setup/error', err.toString())
+		await client.run('setup/error', err.toString())
+		return
 	}
 }

@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { Box, Flex, Spacer, Stack } from '@chakra-ui/layout'
 import {
 	Button,
@@ -18,7 +18,7 @@ import Emitter from '../../providers/eventemitter'
 import SetupPassword from '../components/setup/Password'
 import SetupPhoneCode from '../components/setup/PhoneCode'
 
-const Step1 = () => {
+const Step1 = ({ onSuccess }) => {
 	const toast = useToast()
 	const { t } = useTranslation()
 	const passwordModal = useDisclosure({})
@@ -59,8 +59,10 @@ const Step1 = () => {
 	}, [])
 
 	const VerifyCreds = async (creds) => {
-		await realsync.service('auth/verify', creds)
-		return
+		try {
+			let profile = await realsync.service('auth/verify', creds)
+			if (profile) onSuccess(JSON.parse(profile))
+		} catch (e) {}
 	}
 
 	return (
