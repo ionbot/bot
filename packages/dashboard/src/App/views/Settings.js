@@ -4,7 +4,13 @@ import { useTranslation } from 'react-i18next'
 import { FiGlobe } from 'react-icons/fi'
 import { IonCard } from '../../components/common/card'
 
-const languages = ['en', 'es']
+const languages = [
+	{ code: 'en', name: 'English' },
+	{
+		code: 'es',
+		name: 'Spanish',
+	},
+]
 
 const Settings = () => {
 	const { t } = useTranslation()
@@ -20,23 +26,21 @@ const Settings = () => {
 					icon={<FiGlobe />}
 					color='green'
 				>
-					<HStack userSelect='none'>
+					<HStack userSelect='none' p={4} spacing={8}>
 						{languages.map((lang) => {
 							return (
 								<Box
-									key={lang}
-									p={4}
+									key={lang.code}
 									cursor='pointer'
 									// borderColor={language === lang && 'brand.400'}
-									textColor={language === lang && 'brand.300'}
+									textColor={language === lang.code && 'brand.300'}
 									rounded='xl'
-									width='60px'
 									textAlign='center'
-									onClick={() => i18next.changeLanguage(lang)}
+									onClick={() => i18next.changeLanguage(lang.code)}
 									transition='color 0.6s'
 								>
 									<Heading size='md' d='flex' alignItems='center'>
-										{lang}
+										{lang.name}
 									</Heading>
 								</Box>
 							)
