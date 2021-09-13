@@ -16,6 +16,7 @@
 		"@realsync/server": "^2.1.2",
 		"colors": "^1.4.0",
 		"input": "^1.0.1",
+		"mongoose": "^6.0.5",
 		"telegram": "^1.8.13"
 	}
 }
