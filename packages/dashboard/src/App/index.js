@@ -8,11 +8,13 @@ import Modules from './views/Modules'
 import Settings from './views/Settings'
 import Help from './views/Help'
 import Tools from './views/Tools'
+import { ModuleViewer } from './views/Modules/Viewer'
 
 const Views = {
 	'/': Home,
 	'/home': Home,
 	'/modules': Modules,
+	'/modules/:id': ModuleViewer,
 	'/tools': Tools,
 	'/help': Help,
 	'/settings': Settings,
