@@ -10,6 +10,10 @@ const languages = [
 		code: 'es',
 		name: 'Spanish',
 	},
+	{
+		code: 'ckb',
+		name: 'Central Kurdish',
+	},
 ]
 
 const Settings = () => {
