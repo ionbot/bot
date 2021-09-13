@@ -5,18 +5,18 @@ import { useTranslation } from 'react-i18next'
 import { FiGlobe } from 'react-icons/fi'
 import { IonCard } from '../../components/common/card'
 
+const languages = ['en', 'es']
+
 const Settings = () => {
 	const { t } = useTranslation()
-	let { languages, language } = i18next
-
-	languages = languages.filter((lang) => lang !== 'dev') // removes dev lang
+	let { language } = i18next
 
 	return (
 		<motion.div
-			initial={{ opacity: 0 }}
-			animate={{ opacity: 1 }}
-			exit={{ opacity: 0 }}
-			transition={{ duration: 0.5 }}
+			initial={{ opacity: 0, y: -20 }}
+			animate={{ opacity: 1, y: 0 }}
+			exit={{ opacity: 0, y: -20 }}
+			transition={{ duration: 0.3 }}
 		>
 			<Heading>Settings</Heading>
 			<Stack mt={8}>
@@ -38,8 +38,11 @@ const Settings = () => {
 									rounded='xl'
 									width='60px'
 									textAlign='center'
+									onClick={() => i18next.changeLanguage(lang)}
 								>
-									<Heading size='md'>{lang}</Heading>
+									<Heading size='md' d='flex' alignItems='center'>
+										{lang}
+									</Heading>
 								</Box>
 							)
 						})}

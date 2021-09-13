@@ -1,0 +1,30 @@
+{
+	"auth": {
+		"fetchProfile": "Obteniendo perfil de usuario"
+	},
+	"setup": {
+		"title": "Ion Setup",
+		"subTitle": "Obtenga valores de my.telegram.org y complete el formulario para completar la configuración de Ion. Si tiene 2FA habilitado, se le pedirá.",
+
+		"apiId": "ID de API",
+		"apiHash": "Api Hash",
+		"phoneNumber": "Número de teléfono",
+
+		"success": "Éxito",
+		"successInfo": "La configuración de Ion ha finalizado, su bot debería estar en funcionamiento. Verifique enviando el comando \".ping \".",
+		"greetings": "Gracias por usar Ion, {{name}}."
+	},
+	"common": {
+		"home": "Hogar",
+		"modules": "Módulos",
+		"settings": "Ajustes",
+
+		"verify": "Verificar",
+		"submit": "Enviar"
+	},
+
+	"settings": {
+		"language": "Idioma",
+		"languageInfo": "Cambia tu idioma preferido"
+	}
+}
