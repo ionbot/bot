@@ -10,27 +10,27 @@ import {
 	ModalBody,
 	ModalCloseButton,
 } from '@chakra-ui/react'
-import Emitter from '../../../providers/eventemitter'
+import Emitter from '../../providers/eventemitter'
 
-const SetupPassword = ({ isOpen, onClose }) => {
-	const password = useRef(null)
+const SetupPhoneCode = ({ isOpen, onClose }) => {
+	const phoneCode = useRef(null)
 
-	const EmitPassword = () => {
-		Emitter.emit('setup/password', password.current.value)
+	const EmitPhoneCode = () => {
+		Emitter.emit('setup/phoneCode', phoneCode.current.value)
 	}
 
 	return (
 		<Modal isOpen={isOpen} onClose={onClose}>
 			<ModalOverlay />
 			<ModalContent>
-				<ModalHeader>Enter your Password</ModalHeader>
+				<ModalHeader>Enter Phone Code</ModalHeader>
 				<ModalCloseButton />
 				<ModalBody>
-					<Input type='password' variant='flushed' ref={password} />
+					<Input type='text' variant='flushed' ref={phoneCode} />
 				</ModalBody>
 
 				<ModalFooter>
-					<Button variant='ghost' onClick={EmitPassword}>
+					<Button variant='ghost' onClick={EmitPhoneCode}>
 						Verify
 					</Button>
 				</ModalFooter>
@@ -39,4 +39,4 @@ const SetupPassword = ({ isOpen, onClose }) => {
 	)
 }
 
-export default SetupPassword
+export default SetupPhoneCode

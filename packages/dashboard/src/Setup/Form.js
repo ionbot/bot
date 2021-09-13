@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { Box, Flex, Spacer, Stack } from '@chakra-ui/layout'
 import {
 	Button,
@@ -12,8 +12,8 @@ import { FiCheck } from 'react-icons/fi'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
-import realsync from '../../providers/realsync'
-import Emitter from '../../providers/eventemitter'
+import realsync from '../providers/realsync'
+import Emitter from '../providers/eventemitter'
 
 import SetupPassword from '../components/setup/Password'
 import SetupPhoneCode from '../components/setup/PhoneCode'
