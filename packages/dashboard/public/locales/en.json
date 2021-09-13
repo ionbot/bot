@@ -12,6 +12,7 @@
 
 		"success": "Success",
 		"successInfo": "Ion should be up and running. You can verify it with the \"ping\" command.",
+
 		"greetings": "Thanks for choosing Ion, {{name}}."
 	},
 	"common": {
@@ -25,6 +26,9 @@
 	},
 	"settings": {
 		"language": "Language",
-		"languageInfo": "Choose your preferred language."
+		"languageInfo": "Choose your preferred language.",
+
+		"contributors": "Contributors",
+		"contributorsInfo": "Thanks to all of them for contributing to Ion"
 	}
 }

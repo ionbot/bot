@@ -2,7 +2,7 @@ import { Box, Flex, Heading, Text } from '@chakra-ui/layout'
 
 export const IonCard = ({ title, subTitle, color, icon, children }) => {
 	return (
-		<Box p={4} shadow='md' rounded='lg' w='full'>
+		<Box p={4} rounded='lg' w='full'>
 			<Flex alignItems='center'>
 				<Box
 					fontSize='5xl'

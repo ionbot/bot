@@ -1,6 +1,6 @@
 import { Box, Heading, Text, VStack } from '@chakra-ui/layout'
 import { Link } from 'react-router-dom'
-import { FiHome, FiPackage, FiSettings } from 'react-icons/fi'
+import { FiHome, FiPackage, FiSettings, FiGrid } from 'react-icons/fi'
 
 import { UserStore } from '../../store/user'
 import { useTranslation } from 'react-i18next'
@@ -20,12 +20,18 @@ export const AppSidebar = ({ active }) => {
 			icon: <FiPackage />,
 			color: 'purple.300',
 		},
+		tools: {
+			name: t('common.tools'),
+			icon: <FiGrid />,
+			color: 'orange.300',
+		},
 		settings: {
 			name: t('common.settings'),
 			icon: <FiSettings />,
 			color: 'red.300',
 		},
 	}
+
 	const itemKeys = Object.keys(SidebarItems)
 	return (
 		<Box h='100vh' shadow='lg'>
