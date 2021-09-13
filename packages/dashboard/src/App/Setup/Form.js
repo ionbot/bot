@@ -10,6 +10,7 @@ import {
 } from '@chakra-ui/react'
 import { FiCheck } from 'react-icons/fi'
 import { useForm } from 'react-hook-form'
+import { useTranslation } from 'react-i18next'
 
 import realsync from '../../providers/realsync'
 import Emitter from '../../providers/eventemitter'
@@ -19,6 +20,7 @@ import SetupPhoneCode from '../components/setup/PhoneCode'
 
 const Step1 = () => {
 	const toast = useToast()
+	const { t } = useTranslation()
 	const passwordModal = useDisclosure({})
 	const phoneCodeModal = useDisclosure({})
 
@@ -30,7 +32,6 @@ const Step1 = () => {
 
 	useEffect(() => {
 		realsync.register('setup/error', (error) => {
-			console.log('error', error)
 			toast({ status: 'error', title: error })
 		})
 
@@ -70,7 +71,7 @@ const Step1 = () => {
 			<form onSubmit={handleSubmit(VerifyCreds)}>
 				<Stack mt={8} spacing={6}>
 					<FormControl>
-						<FormLabel>API ID</FormLabel>
+						<FormLabel>{t('setup.apiId')}</FormLabel>
 						<Input
 							type='text'
 							placeholder='482005'
@@ -80,7 +81,7 @@ const Step1 = () => {
 						/>
 					</FormControl>
 					<FormControl>
-						<FormLabel>API Hash</FormLabel>
+						<FormLabel>{t('setup.apiHash')}</FormLabel>
 						<Input
 							type='text'
 							placeholder='23b6f50fb1f824e9643ee459828e4bcc'
@@ -90,7 +91,7 @@ const Step1 = () => {
 						/>
 					</FormControl>
 					<FormControl>
-						<FormLabel>Phone Number</FormLabel>
+						<FormLabel>{t('setup.phoneNumber')}</FormLabel>
 						<Input
 							type='text'
 							placeholder='+9170XXX35XX8'
@@ -106,7 +107,7 @@ const Step1 = () => {
 							isLoading={isSubmitting}
 							leftIcon={<FiCheck />}
 						>
-							Continue
+							{t('common.submit')}
 						</Button>
 					</Flex>
 				</Stack>

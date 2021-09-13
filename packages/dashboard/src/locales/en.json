@@ -1,0 +1,14 @@
+{
+	"setup": {
+		"title": "Ion Setup",
+		"subTitle": "Get values from my.telegram.org and fill out the form to complete Ion setup. If you've 2FA enabled, you'll be prompted.",
+
+		"apiId": "Api ID",
+		"apiHash": "Api Hash",
+		"phoneNumber": "Phone Number"
+	},
+	"common": {
+		"verify": "Verify",
+		"submit": "Submit"
+	}
+}
