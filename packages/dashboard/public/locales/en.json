@@ -36,7 +36,7 @@
 	"modules": {
 		"ping": {
 			"name": "Ping",
-			"info": "This module will help you check if your bot is running or not"
+			"info": "This module will help you check if your bot is running or not."
 		}
 	}
 }
