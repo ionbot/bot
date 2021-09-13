@@ -1,5 +1,4 @@
 import { Box, Heading, HStack, Stack } from '@chakra-ui/layout'
-import { motion } from 'framer-motion'
 import i18next from 'i18next'
 import { useTranslation } from 'react-i18next'
 import { FiGlobe } from 'react-icons/fi'
@@ -12,13 +11,8 @@ const Settings = () => {
 	let { language } = i18next
 
 	return (
-		<motion.div
-			initial={{ opacity: 0, y: -20 }}
-			animate={{ opacity: 1, y: 0 }}
-			exit={{ opacity: 0, y: -20 }}
-			transition={{ duration: 0.3 }}
-		>
-			<Heading>Settings</Heading>
+		<>
+			<Heading>{t('common.settings')}</Heading>
 			<Stack mt={8}>
 				<IonCard
 					title={t('settings.language')}
@@ -49,7 +43,7 @@ const Settings = () => {
 					</HStack>
 				</IonCard>
 			</Stack>
-		</motion.div>
+		</>
 	)
 }
 

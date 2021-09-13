@@ -1,11 +1,18 @@
 import { Box, Flex } from '@chakra-ui/react'
 import { AppSidebar } from '../components/app/sidebar'
 import { Switch, Route, withRouter } from 'react-router-dom'
-import { AnimatePresence } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 import Home from './views/Home'
 import Modules from './views/Modules'
 import Settings from './views/Settings'
+
+const Views = {
+	'/': Home,
+	'/home': Home,
+	'/modules': Modules,
+	'/settings': Settings,
+}
 
 const App = (props) => {
 	const { pathname } = props.location
@@ -19,10 +26,25 @@ const App = (props) => {
 				<Box w='full' p={4} h='100vh' textColor='gray.500'>
 					<AnimatePresence exitBeforeEnter initial={false}>
 						<Switch location={props.location} key={pathname}>
-							<Route path='/' exact component={Home} />
-							<Route path='/home' component={Home} />
-							<Route path='/modules' component={Modules} />
-							<Route path='/settings' component={Settings} />
+							{Object.keys(Views).map((route) => (
+								<Route
+									path={route}
+									exact
+									component={(props) => {
+										const View = Views[route]
+										return (
+											<motion.div
+												initial={{ opacity: 0, y: -20 }}
+												animate={{ opacity: 1, y: 0 }}
+												exit={{ opacity: 0, y: -20 }}
+												transition={{ duration: 0.3 }}
+											>
+												<View {...props} />
+											</motion.div>
+										)
+									}}
+								/>
+							))}
 						</Switch>
 					</AnimatePresence>
 				</Box>
