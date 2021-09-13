@@ -15,6 +15,10 @@
 		"greetings": "Thanks for using Ion, {{name}}."
 	},
 	"common": {
+		"home": "Home",
+		"modules": "Modules",
+		"settings": "Settings",
+
 		"verify": "Verify",
 		"submit": "Submit"
 	}
