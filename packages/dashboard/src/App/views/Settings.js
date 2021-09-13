@@ -1,9 +1,8 @@
-import { Box, Center, Divider, Heading, HStack, Stack } from '@chakra-ui/layout'
+import { Box, Divider, Heading, HStack, Stack } from '@chakra-ui/layout'
 import i18next from 'i18next'
 import { useTranslation } from 'react-i18next'
-import { FiGlobe, FiGitPullRequest } from 'react-icons/fi'
+import { FiGlobe } from 'react-icons/fi'
 import { IonCard } from '../../components/common/card'
-import { IonContributor } from '../../components/common/contributors'
 
 const languages = [
 	{ code: 'en', name: 'English' },
@@ -56,15 +55,6 @@ const Settings = () => {
 				</IonCard>
 
 				<Divider />
-
-				<IonCard
-					title={t('settings.contributors')}
-					subTitle={t('settings.contributorsInfo')}
-					icon={<FiGitPullRequest />}
-					color='orange'
-				>
-					<IonContributor />
-				</IonCard>
 			</Stack>
 		</>
 	)

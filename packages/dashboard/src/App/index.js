@@ -6,11 +6,15 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Home from './views/Home'
 import Modules from './views/Modules'
 import Settings from './views/Settings'
+import Help from './views/Help'
+import Tools from './views/Tools'
 
 const Views = {
 	'/': Home,
 	'/home': Home,
 	'/modules': Modules,
+	'/tools': Tools,
+	'/help': Help,
 	'/settings': Settings,
 }
 

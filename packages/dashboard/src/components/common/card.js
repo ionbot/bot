@@ -1,6 +1,6 @@
-import { Box, Flex, Heading, Text } from '@chakra-ui/layout'
+import { Box, Flex, Heading, Spacer, Text } from '@chakra-ui/layout'
 
-export const IonCard = ({ title, subTitle, color, icon, children }) => {
+export const IonCard = ({ title, subTitle, right, color, icon, children }) => {
 	return (
 		<Box p={4} rounded='lg' w='full'>
 			<Flex alignItems='center'>
@@ -20,6 +20,8 @@ export const IonCard = ({ title, subTitle, color, icon, children }) => {
 					</Heading>
 					<Text mt={1}>{subTitle}</Text>
 				</Box>
+				<Spacer />
+				{right}
 			</Flex>
 
 			<Box mt={2}>{children}</Box>
