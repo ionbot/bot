@@ -11,7 +11,7 @@ class Ion {
 
 	async init() {
 		const { apiId, apiHash, session } = await getUserCreds()
-		if (!apiId || !apiHash || !session) {
+		if (apiId && apiHash && session) {
 			this.client = new TelegramClient(session, apiId, apiHash, {
 				connectionRetries: 5,
 			})
