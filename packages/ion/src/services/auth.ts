@@ -2,6 +2,7 @@ import { Client } from '@realsync/server'
 import { TelegramClient } from 'telegram'
 import { StringSession } from 'telegram/sessions'
 import { SetConfig } from '../providers/config'
+import ion from '../providers/ion'
 interface Credentials {
 	apiId: number
 	apiHash: string
@@ -40,6 +41,8 @@ export const AuthService = async (client: Client, credentials: Credentials) => {
 		await SetConfig('__apiHash', apiHash)
 
 		const self: any = await telegramClient.getMe()
+
+		ion.init()
 
 		return JSON.stringify(self)
 	} catch (err: any) {
