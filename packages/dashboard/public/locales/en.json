@@ -21,6 +21,12 @@
 		"verify": "Verify",
 		"submit": "Submit"
 	},
+	"stats": {
+		"groups": "Groups",
+		"channels": "Channels",
+		"bannedUsers": "Banned Users",
+		"commands": "Commands"
+	},
 	"settings": {
 		"language": "Language",
 		"languageInfo": "Choose your preferred language.",
