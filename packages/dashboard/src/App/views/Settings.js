@@ -13,6 +13,7 @@ const languages = [
 	{
 		code: 'ckb',
 		name: 'Central Kurdish',
+		rtl: true,
 	},
 ]
 
