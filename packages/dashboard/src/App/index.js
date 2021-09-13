@@ -1,6 +1,6 @@
 import { Box, Flex } from '@chakra-ui/react'
 import { AppSidebar } from '../components/app/sidebar'
-import { Switch, Route, withRouter } from 'react-router-dom'
+import { Redirect, Switch, Route, withRouter } from 'react-router-dom'
 import { AnimatePresence, motion } from 'framer-motion'
 
 import Home from './views/Home'
@@ -11,7 +11,7 @@ import Tools from './views/Tools'
 import { ModuleViewer } from './views/Modules/Viewer'
 
 const Views = {
-	'/': Home,
+	'/': () => <Redirect to='/home' />,
 	'/home': Home,
 	'/modules': Modules,
 	'/modules/:id': ModuleViewer,
