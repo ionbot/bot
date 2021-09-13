@@ -62,11 +62,12 @@ class Ion {
 					icoming: meta.mode === 'incoming',
 				}
 
+				this.loadedModules.push(meta)
+
 				this.client?.addEventHandler(
 					async (event: NewMessageEvent) => {
 						// attach handler to the module
 						handler(this.client as TelegramClient, event)
-						this.loadedModules.push(meta)
 					},
 					new NewMessage({
 						...mode,

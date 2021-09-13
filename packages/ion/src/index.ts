@@ -4,6 +4,7 @@ import { connect } from 'mongoose'
 import { RealSync } from '@realsync/server'
 import { AuthService } from './services/auth'
 import { UserProfile } from './services/user'
+import { LoadedModules } from './services/ion'
 
 const { version } = require('../package.json')
 
@@ -19,6 +20,7 @@ const realsync = new RealSync(httpServer, '*')
 realsync.register('auth/verify', AuthService)
 realsync.register('user/profile', UserProfile)
 realsync.register('ion/version', () => version)
+realsync.register('ion/loaded-modules', LoadedModules)
 
 httpServer.listen(PORT, () => {
 	console.log(`listening on ${PORT}`.blue.bold)

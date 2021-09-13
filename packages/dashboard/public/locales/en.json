@@ -32,5 +32,11 @@
 		"languageInfo": "Choose your preferred language.",
 		"contributors": "Contributors",
 		"contributorsInfo": "Thanks to anyone who made Ion become what it is."
+	},
+	"modules": {
+		"ping": {
+			"name": "Ping",
+			"info": "This module will help you check if your bot is running or not"
+		}
 	}
 }
