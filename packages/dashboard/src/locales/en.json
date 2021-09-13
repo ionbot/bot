@@ -21,5 +21,10 @@
 
 		"verify": "Verify",
 		"submit": "Submit"
+	},
+
+	"settings": {
+		"language": "Language",
+		"languageInfo": "Change your prefered language"
 	}
 }

@@ -12,11 +12,11 @@ const App = (props) => {
 
 	return (
 		<Box h='100vh'>
-			<Flex>
-				<Box w={{ base: 'full', md: '52' }}>
+			<Flex w='full'>
+				<Box w={{ base: '32', md: '44' }}>
 					<AppSidebar active={pathname.replace(/\//, '')} />
 				</Box>
-				<Box p={4} h='100vh' textColor='gray.500'>
+				<Box w='full' p={4} h='100vh' textColor='gray.500'>
 					<AnimatePresence exitBeforeEnter initial={false}>
 						<Switch location={props.location} key={pathname}>
 							<Route path='/' exact component={Home} />
