@@ -28,5 +28,9 @@
 		"koa-static": "^5.0.0",
 		"mongoose": "^6.0.5",
 		"telegram": "^1.8.13"
-	}
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"gitHead": "184ad67473882c3a1486b004561e691b0f0684a3"
 }
