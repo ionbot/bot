@@ -1,4 +1,5 @@
 import 'colors'
+import 'dotenv/config'
 import path from 'path'
 import http from 'http'
 import Koa from 'koa'
@@ -8,14 +9,16 @@ import { RealSync } from '@realsync/server'
 import { AuthService } from './services/auth'
 import { UserProfile } from './services/user'
 import { LoadedModules } from './services/ion'
+import ion from './providers/ion'
 
+const { NODE_ENV } = process.env
 const { version } = require('../package.json')
 
 const PORT = process.env.PORT || 4337
-const DB_URL = process.env.DB_URL || 'mongodb://localhost/ion'
+const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/ion'
 const dashboardDir = path.join(__dirname, 'ion-client')
 
-connect(DB_URL, {})
+connect(MONGO_URI, {})
 
 const koa = new Koa()
 const httpServer = http.createServer(koa.callback())
@@ -29,6 +32,13 @@ realsync.register('user/profile', UserProfile)
 realsync.register('ion/version', () => version)
 realsync.register('ion/loaded-modules', LoadedModules)
 
-httpServer.listen(PORT, () => {
-	console.log(`listening on ${PORT}`.blue.bold)
-})
+const main = () => {
+	ion.init()
+	httpServer.listen(PORT, () => {
+		console.log(`listening on ${PORT}`.blue.bold)
+	})
+}
+
+if (NODE_ENV === 'dev') main()
+
+export default main
