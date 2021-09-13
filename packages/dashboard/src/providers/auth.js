@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Center } from '@chakra-ui/layout'
 import { IonLoader } from '../components/common/loading'
-import Setup from '../Setup'
+import Setup from '../App/Setup'
 import realsync from './realsync'
 import { useTranslation } from 'react-i18next'
 import { UserStore } from '../store/user'

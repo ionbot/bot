@@ -12,11 +12,11 @@ import { FiCheck } from 'react-icons/fi'
 import { useForm } from 'react-hook-form'
 import { useTranslation } from 'react-i18next'
 
-import realsync from '../providers/realsync'
-import Emitter from '../providers/eventemitter'
+import realsync from '../../providers/realsync'
+import Emitter from '../../providers/eventemitter'
 
-import SetupPassword from '../components/setup/Password'
-import SetupPhoneCode from '../components/setup/PhoneCode'
+import SetupPassword from '../../components/setup/Password'
+import SetupPhoneCode from '../../components/setup/PhoneCode'
 
 const Step1 = ({ onSuccess }) => {
 	const toast = useToast()
