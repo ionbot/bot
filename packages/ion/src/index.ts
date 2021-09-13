@@ -5,7 +5,7 @@ import { RealSync } from '@realsync/server'
 import { AuthService } from './services/auth'
 
 const PORT = process.env.PORT || 4337
-const DB_URL = process.env.PORT || 'mongodb://localhost/ion'
+const DB_URL = process.env.DB_URL || 'mongodb://localhost/ion'
 
 connect(DB_URL, {})
 
