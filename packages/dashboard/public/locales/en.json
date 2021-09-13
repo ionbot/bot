@@ -5,14 +5,11 @@
 	"setup": {
 		"title": "Ion Setup",
 		"subTitle": "Get the app credentials from my.telegram.org/apps and fill out the form. If you have 2FA enabled, you'll have to enter your password too.",
-
 		"apiId": "App ID",
 		"apiHash": "App hash",
 		"phoneNumber": "Phone number",
-
 		"success": "Success",
 		"successInfo": "Ion should be up and running. You can verify it with the \"ping\" command.",
-
 		"greetings": "Thanks for choosing Ion, {{name}}."
 	},
 	"common": {
@@ -20,15 +17,13 @@
 		"modules": "Modules",
 		"settings": "Settings",
 		"tools": "Tools",
-
 		"verify": "Verify",
 		"submit": "Submit"
 	},
 	"settings": {
 		"language": "Language",
 		"languageInfo": "Choose your preferred language.",
-
 		"contributors": "Contributors",
-		"contributorsInfo": "Thanks to all of them for contributing to Ion"
+		"contributorsInfo": "Thanks to anyone who made Ion become what it is."
 	}
 }
