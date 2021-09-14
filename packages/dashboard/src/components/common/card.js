@@ -6,7 +6,6 @@ export const IonCard = ({ title, subTitle, right, color, icon, children }) => {
 			<Flex alignItems='center'>
 				<Box
 					fontSize='5xl'
-					mr={3}
 					p={2}
 					rounded='xl'
 					textColor={`${color}.400`}
@@ -14,7 +13,7 @@ export const IonCard = ({ title, subTitle, right, color, icon, children }) => {
 				>
 					{icon}
 				</Box>
-				<Box>
+				<Box ml={2}>
 					<Heading size='lg' fontWeight='normal'>
 						{title}
 					</Heading>

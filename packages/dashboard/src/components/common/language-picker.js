@@ -19,7 +19,10 @@ export const LanguagePicker = () => {
 			</MenuButton>
 			<MenuList>
 				{languages.map((lang) => (
-					<MenuItem onClick={() => i18next.changeLanguage(lang.code)}>
+					<MenuItem
+						key={lang.code}
+						onClick={() => i18next.changeLanguage(lang.code)}
+					>
 						{lang.name}
 					</MenuItem>
 				))}

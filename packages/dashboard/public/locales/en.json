@@ -52,7 +52,8 @@
 		},
 		"afk": {
 			"name": "AFK",
-			"info": "The module will help other know when you're away from keyboard."
+			"info": "The module helps other know that you are away from keyboard",
+			"config": {}
 		}
 	}
 }

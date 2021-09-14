@@ -6,14 +6,13 @@ import {
 	DrawerOverlay,
 	DrawerContent,
 	DrawerCloseButton,
-	Button,
 	Heading,
 	Text,
 	Divider,
 	SimpleGrid,
 } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
-import { FiCloud, FiCode, FiSave } from 'react-icons/fi'
+import { FiCloud, FiCode } from 'react-icons/fi'
 import { IonCard } from '../../../components/common/card'
 import { Tabs, TabList, TabPanels, Tab, TabPanel } from '@chakra-ui/react'
 import { ModuleFields } from '../../../components/modules/fields'
@@ -73,11 +72,7 @@ export const ModuleEditor = ({ onClose, isOpen, module }) => {
 					</Tabs>
 				</DrawerBody>
 
-				<DrawerFooter>
-					<Button onClick={onClose} leftIcon={<FiSave />} variant='outline'>
-						Save
-					</Button>
-				</DrawerFooter>
+				<DrawerFooter></DrawerFooter>
 			</DrawerContent>
 		</Drawer>
 	)

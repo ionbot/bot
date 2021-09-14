@@ -15,7 +15,7 @@ export interface Meta {
 
 interface Module {
 	meta: Meta
-	handler: (client: TelegramClient, event: NewMessageEvent) => any
+	handler: (client: TelegramClient, event: NewMessageEvent, config?: any) => any
 }
 
 let allModules: Module[] = [ping, afk]

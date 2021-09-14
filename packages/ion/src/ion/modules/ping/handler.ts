@@ -1,11 +1,16 @@
 import { TelegramClient } from 'telegram'
 import { NewMessageEvent } from 'telegram/events'
+import { GetConfig } from '../../../providers/config'
+
 const { version } = require('../../../../package.json')
 
 export const PingHandler = async (
 	client: TelegramClient,
 	event: NewMessageEvent
 ) => {
+	let moduleConfig = await GetConfig(`mod-ping`)
+	const { displayLatency } = moduleConfig
+
 	const time = Date.now()
 	await event.message.edit({ text: '...' })
 
@@ -17,7 +22,7 @@ export const PingHandler = async (
 
 	let text = `🔥 Ion v${version} is up and running.\n`
 
-	text += latency
+	if (displayLatency) text += latency
 
 	await event.message.edit({
 		text,
