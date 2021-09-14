@@ -1,5 +1,6 @@
 import { TelegramClient } from 'telegram'
 import { NewMessageEvent } from 'telegram/events'
+import afk from './afk'
 import ping from './ping'
 
 export interface Meta {
@@ -17,5 +18,5 @@ interface Module {
 	handler: (client: TelegramClient, event: NewMessageEvent) => any
 }
 
-let allModules: Module[] = [ping]
+let allModules: Module[] = [ping, afk]
 export default allModules
