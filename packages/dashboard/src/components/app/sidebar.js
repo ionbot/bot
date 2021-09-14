@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack } from '@chakra-ui/layout'
+import { Badge, Box, Heading, Text, VStack } from '@chakra-ui/layout'
 import { Link } from 'react-router-dom'
 import {
 	FiHome,
@@ -10,10 +10,18 @@ import {
 
 import { UserStore } from '../../store/user'
 import { useTranslation } from 'react-i18next'
+import { useEffect, useState } from 'react'
+import realsync from '../../providers/realsync'
 
 export const AppSidebar = ({ active }) => {
+	const [socketStatus, setSocketStatus] = useState(realsync.socket.connected)
 	const { t } = useTranslation()
 	const ionVersion = UserStore.useState((s) => s.ionVersion)
+
+	useEffect(() => {
+		realsync.socket.on('disconnect', () => setSocketStatus(false))
+		realsync.socket.on('connect', () => setSocketStatus(true))
+	}, [])
 
 	const SidebarItems = {
 		home: {
@@ -47,7 +55,12 @@ export const AppSidebar = ({ active }) => {
 	return (
 		<Box>
 			<VStack userSelect='none' spacing={12} py={8}>
-				{itemKeys.map((key, idx) => {
+				{!socketStatus && (
+					<Badge colorScheme='red' rounded='lg'>
+						disconnected
+					</Badge>
+				)}
+				{itemKeys.map((key) => {
 					const item = SidebarItems[key]
 					const activeColor = active === key ? item.color : 'gray.500'
 
