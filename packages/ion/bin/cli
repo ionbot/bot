@@ -1,16 +1,23 @@
 #!/usr/bin/env node
 
-const { default: ion } = require('../dist')
+const { Ion } = require('../dist')
 const { version } = require('../package.json')
 const { program } = require('commander')
 
 program.version(version)
 
 program.option('-i, --init', 'initialise ion')
+program.option('-d, --database <mongouri>', 'uri of mongo database')
+program.option('-p, --port <port>', 'port for dashboard')
 program.parse(process.argv)
 
 const options = program.opts()
 
+let config = {}
+
+config.mongoUri = options.database
+config.port = options.port
+
 if (options.init) {
-	ion()
+	Ion(config)
 }
