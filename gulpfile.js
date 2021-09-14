@@ -3,7 +3,7 @@ const run = require('gulp-run')
 
 gulp.task('build', (cb) => {
 	run('yarn build:client').exec('', () => {
-		run('yarn build:client').exec('', () => {
+		run('yarn build:server').exec('', () => {
 			cb()
 		})
 	})
