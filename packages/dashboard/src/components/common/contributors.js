@@ -48,8 +48,9 @@ export const IonContributor = () => {
 						href={`https://github.com/${contributor.login}`}
 						target='_blank'
 						rel='noreferrer'
+						key={idx}
 					>
-						<Flex key={idx} alignItems='center'>
+						<Flex alignItems='center'>
 							<Avatar src={contributor.avatar_url} />
 							<Box ml={2}>
 								<Heading size='md' fontWeight='light'>
