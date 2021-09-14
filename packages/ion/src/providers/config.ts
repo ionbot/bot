@@ -3,7 +3,7 @@ import { ConfigModel } from '../models/config'
 export const SetConfig = async (key: string, value: any) => {
 	try {
 		const response = await ConfigModel.create({ key, value })
-		return response
+		return response || {}
 	} catch (err: any) {
 		if (err.code === 11000) {
 			const response = await ConfigModel.findOneAndUpdate({ key }, { value })
