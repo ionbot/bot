@@ -24,10 +24,10 @@ There are two ways you can install Ion on your PC/Android. To install and host o
 
 This is the easiest way to install Ion, run the following commands:
 
- `yarn global add @ionapp/ion`
-      or
-`npm i -g @ionapp/ion`
-`ion --setup`
+```
+npm i -g @ionapp/ion
+ion --setup
+```
 
 Next time, you don't need to run `--setup`, instead run `--init`. 
 
