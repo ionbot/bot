@@ -46,6 +46,11 @@
 				"displayLatency": "Display Latency",
 				"displayLatencyInfo": "Enable this if you want latency to be displayed in response"
 			}
+		},
+		"afk": {
+			"name": "AFK",
+			"info": "The module helps other know that you are away from keyboard",
+			"config": {}
 		}
 	}
 }
