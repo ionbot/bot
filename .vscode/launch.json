@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"configurations": [
+		{
+			"command": "yarn && yarn lerna bootstrap && yarn dev",
+			"name": "Ion Dev",
+			"request": "launch",
+			"type": "node-terminal"
+		}
+	]
+}
