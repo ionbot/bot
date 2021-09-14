@@ -39,7 +39,11 @@
 		"contributorsInfo": "Thanks to anyone who made Ion become what it is."
 	},
 	"scope": {
-		"all": "Works in every chat"
+		"all": "Works in every chat",
+		"private": "Works only in private",
+		"group": "Works only in group",
+		"channel": "Works only in channels",
+		"groupAndChannel": "Works only in groups and channels"
 	},
 	"modules": {
 		"ping": {
