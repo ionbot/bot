@@ -70,7 +70,11 @@ class Ion {
 				this.client?.addEventHandler(
 					async (event: NewMessageEvent) => {
 						// attach handler to the module
-						handler(this.client as TelegramClient, event)
+						let match: any = ''
+						if (meta.pattern) {
+							match = event.message.message?.match(meta.pattern)
+						}
+						handler(this.client as TelegramClient, event, match)
 					},
 					new NewMessage({
 						...mode,
