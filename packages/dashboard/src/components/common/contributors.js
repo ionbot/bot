@@ -45,7 +45,7 @@ export const IonContributor = () => {
 			{contributors.map((contributor, idx) => {
 				return (
 					<a
-						href={`https://github.com/${contributor.login}`}
+						href={`https://github.com/ionbot/bot/commits?author=${contributor.login}`}
 						target='_blank'
 						rel='noreferrer'
 					>
