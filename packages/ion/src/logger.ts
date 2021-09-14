@@ -13,15 +13,13 @@ winston.addColors({
 	info: 'cyan',
 })
 
-if (process.env.NODE_ENV === 'dev') {
-	logger.add(
-		new winston.transports.Console({
-			format: winston.format.combine(
-				winston.format.colorize(),
-				winston.format.simple()
-			),
-		})
-	)
-}
+logger.add(
+	new winston.transports.Console({
+		format: winston.format.combine(
+			winston.format.colorize(),
+			winston.format.simple()
+		),
+	})
+)
 
 export default logger
