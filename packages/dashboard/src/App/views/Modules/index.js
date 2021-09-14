@@ -8,7 +8,6 @@ import { ModuleEditor } from './Editor'
 const Home = () => {
 	const [modules, setModules] = useState([])
 	const moduleEditor = useDisclosure()
-	console.log('moduleEditor', moduleEditor)
 	const [activeModule, setActiveModule] = useState({})
 
 	const { t } = useTranslation()
