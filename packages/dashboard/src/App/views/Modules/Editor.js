@@ -37,8 +37,12 @@ export const ModuleEditor = ({ onClose, isOpen, module }) => {
 			<DrawerContent bg='gray.50' textColor='gray.500'>
 				<DrawerCloseButton />
 				<DrawerHeader>
-					<Heading size='lg'>{module.name}</Heading>
-					<Text fontSize='md'>{module.info}</Text>
+					<Heading size='lg' fontWeight='normal'>
+						{module.name}
+					</Heading>
+					<Text fontSize='md' fontWeight='normal'>
+						{module.info}
+					</Text>
 				</DrawerHeader>
 
 				<Divider />
