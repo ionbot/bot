@@ -1,4 +1,4 @@
-name: Ion build and publish
+name: Ion Publish
 
 on: release
 
@@ -20,13 +20,13 @@ jobs:
         run: |
           npx lerna bootstrap
 
-      - name: Building
+      - name: Building Packages
         run: yarn gulp
         env:
           CI: false
 
       - name: Publishing to NPM
-        working-directory: ./packages/ion/dist
+        working-directory: ./packages/ion
         run: |
           npm publish --access public
         env:
