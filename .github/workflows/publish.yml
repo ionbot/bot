@@ -2,8 +2,8 @@ name: Ion Publish
 
 on:
   release:
-	  types:
-		  - created
+    types:
+      - created
 
 jobs:
   build:
