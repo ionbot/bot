@@ -68,7 +68,9 @@ export const AppSidebar = ({ active }) => {
 						</Link>
 					)
 				})}
-				<Text textColor='gray.500'>Ion v{ionVersion}</Text>
+				<Text textColor='gray.500' textAlign='center'>
+					Ion v{ionVersion}
+				</Text>
 			</VStack>
 		</Box>
 	)
