@@ -10,15 +10,12 @@ import { AuthService } from './services/auth'
 import { UserProfile } from './services/user'
 import { LoadedModules } from './services/ion'
 import ion from './providers/ion'
+import logger from './logger'
 
 const { NODE_ENV } = process.env
 const { version } = require('../package.json')
 
-const PORT = process.env.PORT || 4337
-const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost/ion'
 const dashboardDir = path.join(__dirname, 'ion-client')
-
-connect(MONGO_URI, {})
 
 const koa = new Koa()
 const httpServer = http.createServer(koa.callback())
@@ -32,13 +29,29 @@ realsync.register('user/profile', UserProfile)
 realsync.register('ion/version', () => version)
 realsync.register('ion/loaded-modules', LoadedModules)
 
-const main = () => {
+export interface IonConfig {
+	port: number
+	mongoUri: string
+}
+
+const Ion = async (config?: IonConfig) => {
+	const PORT = config?.port || 4337
+	const MONGO_URI = config?.mongoUri || 'mongodb://localhost/ion'
+
+	try {
+		logger.info(`trying to connect to database ${MONGO_URI}`)
+		await connect(MONGO_URI, {})
+	} catch (err: any) {
+		logger.error(err.toString())
+		return
+	}
+
 	ion.init()
 	httpServer.listen(PORT, () => {
-		console.log(`listening on ${PORT}`.blue.bold)
+		logger.info(`dashboard is running on port ${PORT}`)
 	})
 }
 
-if (NODE_ENV === 'dev') main()
+if (NODE_ENV === 'dev') Ion()
 
-export default main
+export { Ion }
