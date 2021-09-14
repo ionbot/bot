@@ -45,11 +45,11 @@ const Home = () => {
 							cursor='pointer'
 							willChange='transform'
 							_hover={{
-								transform: 'scale(1.03)',
+								transform: 'scale(0.99)',
 								bg: 'gray.100',
 							}}
 							_active={{
-								transform: 'scale(1.01)',
+								transform: 'scale(0.97)',
 							}}
 							onClick={() => {
 								setActiveModule({ ...module, name, info })

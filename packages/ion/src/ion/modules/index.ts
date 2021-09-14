@@ -2,6 +2,7 @@ import { TelegramClient } from 'telegram'
 import { NewMessageEvent } from 'telegram/events'
 import afk from './afk'
 import ping from './ping'
+import shortlink from './shortlink'
 
 export interface Meta {
 	id: string
@@ -11,6 +12,8 @@ export interface Meta {
 	pattern?: RegExp
 	scope?: 'all' | 'group' | 'private' | 'channel'
 	mode?: 'all' | 'outgoing' | 'incoming'
+
+	examples?: any[]
 }
 
 interface Module {
@@ -18,5 +21,5 @@ interface Module {
 	handler: (client: TelegramClient, event: NewMessageEvent, config?: any) => any
 }
 
-let allModules: Module[] = [ping, afk]
+let allModules: Module[] = [ping, afk, shortlink]
 export default allModules

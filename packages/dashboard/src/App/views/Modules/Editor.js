@@ -1,4 +1,6 @@
 import {
+	Box,
+	Flex,
 	Drawer,
 	DrawerBody,
 	DrawerFooter,
@@ -20,7 +22,7 @@ import { ModuleFields } from '../../../components/modules/fields'
 export const ModuleEditor = ({ onClose, isOpen, module }) => {
 	const { t } = useTranslation()
 
-	let commands = module.commands
+	let { commands, examples = [] } = module
 	const scope = t(`scope.${module.scope}`)
 
 	return (
@@ -35,8 +37,12 @@ export const ModuleEditor = ({ onClose, isOpen, module }) => {
 			<DrawerContent bg='gray.50' textColor='gray.500'>
 				<DrawerCloseButton />
 				<DrawerHeader>
-					<Heading size='lg'>{module.name}</Heading>
-					<Text fontSize='md'>{module.info}</Text>
+					<Heading size='lg' fontWeight='normal'>
+						{module.name}
+					</Heading>
+					<Text fontSize='md' fontWeight='normal'>
+						{module.info}
+					</Text>
 				</DrawerHeader>
 
 				<Divider />
@@ -67,7 +73,27 @@ export const ModuleEditor = ({ onClose, isOpen, module }) => {
 							<TabPanel>
 								<ModuleFields fields={module.fields} module={module.id} />
 							</TabPanel>
-							<TabPanel>Coming soon</TabPanel>
+							<TabPanel>
+								<Flex flexWrap='wrap'>
+									{examples.map((example, idx) => {
+										return (
+											<Box
+												mr={2}
+												mt={2}
+												minW='24'
+												textAlign='center'
+												key={idx}
+												p={2}
+												rounded='xl'
+												fontSize='xl'
+												borderWidth='1px'
+											>
+												{example}
+											</Box>
+										)
+									})}
+								</Flex>
+							</TabPanel>
 						</TabPanels>
 					</Tabs>
 				</DrawerBody>

@@ -53,7 +53,7 @@ export const ModuleFields = ({ fields, module, onSave }) => {
 							<Heading size='md' fontWeight='normal'>
 								{t(i18nkey)}
 							</Heading>
-							<Text>{t(i18nkeyInfo)}</Text>
+							<Text fontWeight='normal'>{t(i18nkeyInfo)}</Text>
 						</Box>
 						<Spacer />
 						<Switch
