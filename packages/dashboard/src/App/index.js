@@ -24,12 +24,28 @@ const App = (props) => {
 	const { pathname } = props.location
 
 	return (
-		<Box h='100vh'>
+		<Box>
 			<Flex w='full'>
-				<Box w={{ base: '32', md: '44' }}>
+				<Box
+					w={{ base: '32', md: '44' }}
+					h='100vh'
+					overflow='auto'
+					shadow='md'
+					css={{
+						'&::-webkit-scrollbar': {
+							width: '0px',
+						},
+						'&::-webkit-scrollbar-track': {
+							width: '0px',
+						},
+						'&::-webkit-scrollbar-thumb': {
+							borderRadius: '0px',
+						},
+					}}
+				>
 					<AppSidebar active={pathname.replace(/\//, '')} />
 				</Box>
-				<Box w='full' p={4} h='100vh' textColor='gray.500'>
+				<Box w='full' p={4} h='100vh' textColor='gray.500' overflow='auto'>
 					<AnimatePresence exitBeforeEnter initial={false}>
 						<Switch location={props.location} key={pathname}>
 							{Object.keys(Views).map((route) => (

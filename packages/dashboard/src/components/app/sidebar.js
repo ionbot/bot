@@ -45,7 +45,7 @@ export const AppSidebar = ({ active }) => {
 
 	const itemKeys = Object.keys(SidebarItems)
 	return (
-		<Box h='100vh' shadow='lg'>
+		<Box>
 			<VStack userSelect='none' spacing={12} py={8}>
 				{itemKeys.map((key, idx) => {
 					const item = SidebarItems[key]
