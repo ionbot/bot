@@ -13,7 +13,7 @@ export const SetConfig = async (key: string, value: any) => {
 		}
 	}
 }
-export const GetConfig = async (key: string): Promise<any> => {
+export const GetConfig = async (key: string, def: any = {}): Promise<any> => {
 	const config = await ConfigModel.findOne({ key })
-	return config ? config.value : null
+	return config ? config.value : def
 }
