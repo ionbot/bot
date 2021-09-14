@@ -3,19 +3,7 @@ import i18next from 'i18next'
 import { useTranslation } from 'react-i18next'
 import { FiGlobe } from 'react-icons/fi'
 import { IonCard } from '../../components/common/card'
-
-const languages = [
-	{ code: 'en', name: 'English' },
-	{
-		code: 'es',
-		name: 'Spanish',
-	},
-	{
-		code: 'ckb',
-		name: 'Central Kurdish',
-		rtl: true,
-	},
-]
+import { languages } from '../../config/languages'
 
 const Settings = () => {
 	const { t } = useTranslation()
