@@ -1,4 +1,4 @@
-name: Ion build and publish
+name: Ion Publish
 
 on: release
 
