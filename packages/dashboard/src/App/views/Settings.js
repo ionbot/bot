@@ -1,4 +1,4 @@
-import { Box, Divider, Heading, HStack, Stack } from '@chakra-ui/layout'
+import { Box, Divider, Flex, Heading, Stack } from '@chakra-ui/layout'
 import i18next from 'i18next'
 import { useTranslation } from 'react-i18next'
 import { FiGlobe } from 'react-icons/fi'
@@ -20,16 +20,17 @@ const Settings = () => {
 					icon={<FiGlobe />}
 					color='green'
 				>
-					<HStack userSelect='none' p={4} spacing={8}>
+					<Flex userSelect='none' spacing={8} flexFlow='wrap'>
 						{languages.map((lang) => {
 							return (
 								<Box
+									mr={6}
+									mt={4}
 									key={lang.code}
 									cursor='pointer'
 									// borderColor={language === lang && 'brand.400'}
 									textColor={language === lang.code && 'brand.300'}
 									rounded='xl'
-									textAlign='center'
 									onClick={() => i18next.changeLanguage(lang.code)}
 									transition='color 0.6s'
 								>
@@ -39,7 +40,7 @@ const Settings = () => {
 								</Box>
 							)
 						})}
-					</HStack>
+					</Flex>
 				</IonCard>
 
 				<Divider />
