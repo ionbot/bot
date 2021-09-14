@@ -13,14 +13,12 @@ function buildServer(cb) {
 	})
 }
 
-function build(cb) {
-	gulp.parallel(buildClient, buildServer)
-	cb()
-}
-
 function dist(cb) {
-	gulp.src('packages/dashboard/build').pipe(gulp.dest('packages/ion/'))
+	gulp
+		.src('packages/dashboard/build/**')
+		.pipe(gulp.dest('packages/ion/dist/ion-client'))
 	cb()
 }
 
-exports.default = gulp.series(build, dist)
+exports.default = gulp.series(buildClient, buildServer, dist)
+exports.dist = dist
