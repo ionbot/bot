@@ -61,7 +61,9 @@ export const AppSidebar = ({ active }) => {
 								textColor={activeColor}
 							>
 								<Box fontSize={{ base: '3xl', '2xl': '5xl' }}>{item.icon}</Box>
-								<Heading size='md'>{item.name}</Heading>
+								<Heading d={{ base: 'none', md: 'unset' }} size='md'>
+									{item.name}
+								</Heading>
 							</VStack>
 						</Link>
 					)
