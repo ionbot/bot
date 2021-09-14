@@ -48,7 +48,6 @@ const Ion = async (config?: IonConfig) => {
 	const MONGO_URI = config?.mongoUri || 'mongodb://localhost/ion'
 
 	try {
-		logger.info(`trying to connect to database ${MONGO_URI}`)
 		await connect(MONGO_URI, {})
 	} catch (err: any) {
 		logger.error(err.toString())
