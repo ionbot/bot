@@ -21,6 +21,9 @@ import { ModuleFields } from '../../../components/modules/fields'
 export const ModuleEditor = ({ onClose, isOpen, module }) => {
 	const { t } = useTranslation()
 
+	let commands = module.commands
+	const scope = t(`scope.${module.scope}`)
+
 	return (
 		<Drawer
 			blockScrollOnMount
@@ -43,13 +46,13 @@ export const ModuleEditor = ({ onClose, isOpen, module }) => {
 					<SimpleGrid columns={{ base: 1, md: 2 }}>
 						<IonCard
 							title='Command'
-							subTitle='/ping'
+							subTitle={commands}
 							icon={<FiCode />}
 							color='red'
 						/>
 						<IonCard
 							title='Scope'
-							subTitle='All'
+							subTitle={scope}
 							icon={<FiCloud />}
 							color='purple'
 						/>
@@ -65,7 +68,7 @@ export const ModuleEditor = ({ onClose, isOpen, module }) => {
 							<TabPanel>
 								<ModuleFields fields={module.fields} module={module.id} />
 							</TabPanel>
-							<TabPanel>213</TabPanel>
+							<TabPanel>Coming soon</TabPanel>
 						</TabPanels>
 					</Tabs>
 				</DrawerBody>

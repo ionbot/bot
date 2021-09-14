@@ -38,6 +38,9 @@
 		"contributors": "Contributors",
 		"contributorsInfo": "Thanks to anyone who made Ion become what it is."
 	},
+	"scope": {
+		"all": "Works in every chat"
+	},
 	"modules": {
 		"ping": {
 			"name": "Ping",
@@ -46,6 +49,10 @@
 				"displayLatency": "Display Latency",
 				"displayLatencyInfo": "Enable this if you want latency to be displayed in response"
 			}
+		},
+		"afk": {
+			"name": "AFK",
+			"info": "The module will help other know when you're away from keyboard."
 		}
 	}
 }
