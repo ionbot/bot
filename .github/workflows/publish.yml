@@ -26,7 +26,7 @@ jobs:
           CI: false
 
       - name: Publishing to NPM
-        working-directory: ./packages/ion/dist
+        working-directory: ./packages/ion
         run: |
           npm publish --access public
         env:
