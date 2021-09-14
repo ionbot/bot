@@ -1,0 +1,11 @@
+{
+	"version": "2.0.0",
+	"configurations": [
+		{
+			"command": "npm run dev",
+			"name": "Ion Dev",
+			"request": "launch",
+			"type": "node-terminal"
+		}
+	]
+}
