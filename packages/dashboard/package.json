@@ -4,6 +4,7 @@
 	"private": true,
 	"dependencies": {
 		"@chakra-ui/react": "^1.6.7",
+		"@emotion/cache": "^11.4.0",
 		"@emotion/react": "^11",
 		"@emotion/styled": "^11",
 		"@realsync/react": "^2.1.1",
@@ -24,6 +25,8 @@
 		"react-icons": "^4.2.0",
 		"react-router-dom": "^5.3.0",
 		"react-scripts": "4.0.3",
+		"stylis": "^4.0.10",
+		"stylis-plugin-rtl": "^2.1.0",
 		"use-http": "^1.0.24",
 		"web-vitals": "^1.0.1"
 	},

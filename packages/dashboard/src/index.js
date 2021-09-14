@@ -10,13 +10,16 @@ import App from './App'
 
 import { SuspenseFallback } from './components/common/suspense'
 import theme from './config/theme'
+import { RtlProvider } from './providers/rtl'
 
 ReactDOM.render(
 	<ChakraProvider theme={theme}>
 		<Suspense fallback={<SuspenseFallback />}>
 			<AuthProvider>
 				<BrowserRouter>
-					<App />
+					<RtlProvider>
+						<App />
+					</RtlProvider>
 				</BrowserRouter>
 			</AuthProvider>
 		</Suspense>

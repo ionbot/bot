@@ -21,21 +21,22 @@ const Settings = () => {
 					color='green'
 				>
 					<Flex userSelect='none' spacing={8} flexFlow='wrap'>
-						{languages.map((lang) => {
+						{Object.keys(languages).map((code) => {
+							const { name } = languages[code]
 							return (
 								<Box
 									mr={6}
 									mt={4}
-									key={lang.code}
+									key={code}
 									cursor='pointer'
 									// borderColor={language === lang && 'brand.400'}
-									textColor={language === lang.code && 'brand.300'}
+									textColor={language === code && 'brand.300'}
 									rounded='xl'
-									onClick={() => i18next.changeLanguage(lang.code)}
+									onClick={() => i18next.changeLanguage(code)}
 									transition='color 0.6s'
 								>
 									<Heading size='md' d='flex' alignItems='center'>
-										{lang.name}
+										{name}
 									</Heading>
 								</Box>
 							)
