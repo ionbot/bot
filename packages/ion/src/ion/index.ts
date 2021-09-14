@@ -1,9 +1,15 @@
 import { TelegramClient } from 'telegram'
+import { Logger } from 'telegram'
 import { NewMessage, NewMessageEvent } from 'telegram/events'
 import { getUserCreds } from '../utils/getUserCred'
 import allModules, { Meta } from './modules'
 
+const { NODE_ENV } = process.env
 const defaultPrefixes = ['.']
+
+if (NODE_ENV !== 'dev') {
+	Logger.setLevel('none')
+}
 
 class Ion {
 	private client?: TelegramClient
