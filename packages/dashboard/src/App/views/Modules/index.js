@@ -21,7 +21,11 @@ const Home = () => {
 	return (
 		<Box>
 			<Heading>{t('common.modules')}</Heading>
-			<SimpleGrid mt={8} columns={{ base: 1, md: 2 }} spacing={4}>
+			<SimpleGrid
+				mt={8}
+				columns={{ base: 1, md: 2, lg: 3, '2xl': 4 }}
+				spacing={4}
+			>
 				{modules.map((module) => {
 					const { id } = module
 					const name = t(`modules.${id}.name`)
