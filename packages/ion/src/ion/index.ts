@@ -7,7 +7,7 @@ import allModules, { Meta } from './modules'
 
 const { version } = require('../../package.json')
 const { NODE_ENV } = process.env
-const defaultPrefixes = ['.']
+const defaultPrefixe = '.'
 
 if (NODE_ENV !== 'dev') {
 	Logger.setLevel('none')
@@ -15,7 +15,7 @@ if (NODE_ENV !== 'dev') {
 
 class Ion {
 	private client?: TelegramClient
-	private prefixes: string[] = defaultPrefixes
+	private prefix: string = defaultPrefixe
 
 	loadedModules: Meta[] = []
 	isRunning: Boolean = false
@@ -29,17 +29,15 @@ class Ion {
 
 		commands = Array.isArray(commands) ? commands : [commands]
 
-		for (let k in this.prefixes) {
-			const prefix = this.prefixes[k]
+		const prefix = this.prefix
 
-			if (message.startsWith(prefix)) {
-				for (let k in commands) {
-					const command = commands[k]
-					const withoutPrefix = message.slice(1, message.length)
+		if (message.startsWith(prefix)) {
+			for (let k in commands) {
+				const command = commands[k]
+				const withoutPrefix = message.slice(1, message.length)
 
-					if (withoutPrefix.match(new RegExp(`^(?:${command})(?:\\s|$)`))) {
-						return true
-					}
+				if (withoutPrefix.match(new RegExp(`^(?:${command})(?:\\s|$)`))) {
+					return true
 				}
 			}
 		}
