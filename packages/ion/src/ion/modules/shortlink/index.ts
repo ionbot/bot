@@ -8,6 +8,7 @@ const meta: Meta = {
 	mode: 'outgoing',
 
 	fields: {},
+	examples: ['.short ionbot.site'],
 }
 
 export default { meta, handler: ShortHandler }

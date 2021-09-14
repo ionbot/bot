@@ -13,6 +13,8 @@ const meta: Meta = {
 			required: false,
 		},
 	},
+
+	examples: ['.ping'],
 }
 
 export default { meta, handler: PingHandler }

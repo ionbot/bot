@@ -12,6 +12,8 @@ export interface Meta {
 	pattern?: RegExp
 	scope?: 'all' | 'group' | 'private' | 'channel'
 	mode?: 'all' | 'outgoing' | 'incoming'
+
+	examples?: any[]
 }
 
 interface Module {
