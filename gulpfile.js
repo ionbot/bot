@@ -11,6 +11,7 @@ gulp.task('build', (cb) => {
 
 gulp.task('dist', (cb) => {
 	gulp.src('packages/dashboard/build').pipe(gulp.dest('packages/ion/'))
+	cb()
 })
 
 exports.default = ['dist']
