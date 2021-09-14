@@ -22,3 +22,5 @@ function dist(cb) {
 
 exports.default = gulp.series(buildClient, buildServer, dist)
 exports.dist = dist
+exports.server = buildServer
+exports.client = buildClient
