@@ -19,7 +19,7 @@ export const IonContributor = () => {
 
 	const Fetch = async () => {
 		contributorApi.get().then((data) => {
-			setContributors([...data])
+			if (data) setContributors([...data])
 		})
 	}
 
@@ -37,9 +37,9 @@ export const IonContributor = () => {
 
 	return (
 		<SimpleGrid
-			spacing={4}
+			spacing={6}
 			mt={6}
-			columns={{ base: 2, md: 4 }}
+			columns={{ base: 1, md: 3, '2xl': 5 }}
 			userSelect='none'
 		>
 			{contributors.map((contributor, idx) => {

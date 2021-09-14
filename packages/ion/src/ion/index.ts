@@ -1,9 +1,11 @@
 import { TelegramClient } from 'telegram'
 import { Logger } from 'telegram'
 import { NewMessage, NewMessageEvent } from 'telegram/events'
+import logger from '../logger'
 import { getUserCreds } from '../utils/getUserCred'
 import allModules, { Meta } from './modules'
 
+const { version } = require('../../package.json')
 const { NODE_ENV } = process.env
 const defaultPrefixes = ['.']
 
@@ -51,6 +53,8 @@ class Ion {
 			this.client = new TelegramClient(session, apiId, apiHash, {
 				connectionRetries: 5,
 			})
+
+			logger.info(`initialising ion ${version}`)
 
 			// start bot
 			await this.client.start({ botAuthToken: '' })

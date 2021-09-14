@@ -1,23 +1,73 @@
 #!/usr/bin/env node
-
+require('colors')
 const { Ion } = require('../dist')
 const { version } = require('../package.json')
 const { program } = require('commander')
+const ConfigStore = require('configstore')
+const inquirer = require('inquirer')
+const { connect, disconnect } = require('mongoose')
+
+const config = new ConfigStore('ion')
 
 program.version(version)
 
 program.option('-i, --init', 'initialise ion')
 program.option('-d, --database <mongouri>', 'uri of mongo database')
 program.option('-p, --port <port>', 'port for dashboard')
+program.option('-s, --setup', 'setup Ion')
+
 program.parse(process.argv)
 
 const options = program.opts()
 
-let config = {}
+function init() {
+	const mongoUri = config.get('mongoUri')
+	const port = config.get('port')
+	Ion({ mongoUri, port })
+}
 
-config.mongoUri = options.database
-config.port = options.port
+function setup() {
+	inquirer
+		.prompt([
+			{
+				type: 'input',
+				name: 'mongoUri',
+				message: 'Enter MongoDB URI connection string',
+			},
+			{
+				type: 'input',
+				name: 'port',
+				message: 'Enter port',
+				default: 4337,
+			},
+		])
+		.then(async (answers) => {
+			try {
+				await connect(answers.mongoUri)
+				disconnect()
+			} catch (err) {
+				const error = err.toString()
+				console.log(`[ERR] ${error}`.red.bold)
+				return
+			}
+
+			const keys = Object.keys(answers)
+			keys.map((key) => {
+				config.set(key, String(answers[key]).trim())
+			})
+
+			console.log(`\Configurations have been saved`.cyan.bold)
+			init()
+		})
+		.catch((error) => {
+			console.log(error)
+		})
+}
+
+if (options.setup) {
+	setup()
+}
 
 if (options.init) {
-	Ion(config)
+	init()
 }

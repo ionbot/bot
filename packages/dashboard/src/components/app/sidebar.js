@@ -45,7 +45,7 @@ export const AppSidebar = ({ active }) => {
 
 	const itemKeys = Object.keys(SidebarItems)
 	return (
-		<Box h='100vh' shadow='lg'>
+		<Box>
 			<VStack userSelect='none' spacing={12} py={8}>
 				{itemKeys.map((key, idx) => {
 					const item = SidebarItems[key]
@@ -60,13 +60,17 @@ export const AppSidebar = ({ active }) => {
 								cursor='pointer'
 								textColor={activeColor}
 							>
-								<Box fontSize='5xl'>{item.icon}</Box>
-								<Heading size='md'>{item.name}</Heading>
+								<Box fontSize={{ base: '3xl', '2xl': '5xl' }}>{item.icon}</Box>
+								<Heading d={{ base: 'none', md: 'unset' }} size='md'>
+									{item.name}
+								</Heading>
 							</VStack>
 						</Link>
 					)
 				})}
-				<Text textColor='gray.500'>Ion v{ionVersion}</Text>
+				<Text textColor='gray.500' textAlign='center'>
+					Ion v{ionVersion}
+				</Text>
 			</VStack>
 		</Box>
 	)

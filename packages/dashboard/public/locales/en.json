@@ -19,7 +19,8 @@
 		"settings": "Settings",
 		"tools": "Tools",
 		"verify": "Verify",
-		"submit": "Submit"
+		"submit": "Submit",
+		"status": "Status"
 	},
 	"stats": {
 		"groups": "Groups",

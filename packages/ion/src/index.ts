@@ -2,8 +2,8 @@ import 'colors'
 import 'dotenv/config'
 import path from 'path'
 import http from 'http'
-import Koa from 'koa'
-import serve from 'koa-static'
+import express from 'express'
+import cors from 'cors'
 import { connect } from 'mongoose'
 import { RealSync } from '@realsync/server'
 import { AuthService } from './services/auth'
@@ -15,13 +15,22 @@ import logger from './logger'
 const { NODE_ENV } = process.env
 const { version } = require('../package.json')
 
+const server = express()
 const dashboardDir = path.join(__dirname, 'ion-client')
 
-const koa = new Koa()
-const httpServer = http.createServer(koa.callback())
+const httpServer = http.createServer(server)
 const realsync = new RealSync(httpServer, '*')
 
-koa.use(serve(dashboardDir))
+server.use(cors())
+server.use(express.static(dashboardDir))
+server.get('*', (req, res) => {
+	if (NODE_ENV === 'dev') {
+		res.end('development mode')
+		return
+	}
+
+	res.sendFile(dashboardDir + '/index.html')
+})
 
 // services
 realsync.register('auth/verify', AuthService)
@@ -39,7 +48,6 @@ const Ion = async (config?: IonConfig) => {
 	const MONGO_URI = config?.mongoUri || 'mongodb://localhost/ion'
 
 	try {
-		logger.info(`trying to connect to database ${MONGO_URI}`)
 		await connect(MONGO_URI, {})
 	} catch (err: any) {
 		logger.error(err.toString())

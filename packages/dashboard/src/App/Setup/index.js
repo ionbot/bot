@@ -1,8 +1,17 @@
 import { useState } from 'react'
-import { Box, Center, Flex, Heading, Stack, Text } from '@chakra-ui/layout'
+import {
+	Box,
+	Center,
+	Flex,
+	Heading,
+	Spacer,
+	Stack,
+	Text,
+} from '@chakra-ui/layout'
 import { useTranslation } from 'react-i18next'
 import SetupForm from './Form'
 import { Button } from '@chakra-ui/button'
+import { LanguagePicker } from '../../components/common/language-picker'
 
 const Setup = () => {
 	const { t } = useTranslation()
@@ -11,9 +20,13 @@ const Setup = () => {
 	const SetupView = () => (
 		<>
 			<Stack spacing={6}>
-				<Heading size='2xl' textColor='gray.600'>
-					{t('setup.title')}
-				</Heading>
+				<Flex>
+					<Heading size='2xl' textColor='gray.600'>
+						{t('setup.title')}
+					</Heading>
+					<Spacer />
+					<LanguagePicker />
+				</Flex>
 				<Text textColor='gray.400'>{t('setup.subTitle')}</Text>
 			</Stack>
 			<SetupForm onSuccess={setProfile} />
