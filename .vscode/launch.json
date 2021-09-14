@@ -2,8 +2,14 @@
 	"version": "2.0.0",
 	"configurations": [
 		{
-			"command": "npm run dev",
-			"name": "Ion Dev",
+			"command": "yarn dev",
+			"name": "Dev",
+			"request": "launch",
+			"type": "node-terminal"
+		},
+		{
+			"command": "yarn && yarn lerna bootstrap",
+			"name": "Deps",
 			"request": "launch",
 			"type": "node-terminal"
 		}
