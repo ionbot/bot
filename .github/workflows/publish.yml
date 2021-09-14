@@ -1,6 +1,9 @@
 name: Ion Publish
 
-on: release
+on:
+	release:
+		types:
+			- created
 
 jobs:
   build:
