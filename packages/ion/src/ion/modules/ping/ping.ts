@@ -7,7 +7,7 @@ const { version } = require('../../../../package.json')
 
 export const PingHandler = new ModuleHandler(
 	async (client: TelegramClient, event: NewMessageEvent, extras) => {
-		const { displayLatency } = extras.match
+		const { displayLatency } = extras.config
 
 		const time = Date.now()
 		await event.message.edit({ text: '...' })
