@@ -7,6 +7,10 @@ export const getUserCreds = async () => {
 	const apiHash = await GetConfig('__apiHash')
 	const sessionString = await GetConfig('__session')
 
+	if (!apiId || !apiHash || !sessionString) {
+		return { apiId: '', apiHash: '', session: '' }
+	}
+
 	apiId = Number(apiId)
 
 	const session = new StringSession(sessionString)
