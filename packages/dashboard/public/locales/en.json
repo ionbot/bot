@@ -57,7 +57,10 @@
 		"afk": {
 			"name": "AFK",
 			"info": "The module helps other know that you are away from keyboard",
-			"config": {}
+			"config": {
+				"afkMessage": "AFK Message",
+				"afkMessageInfo": "Message to send when you are AFK. You can also include variables in your message, learn more."
+			}
 		},
 		"shortlink": {
 			"name": "Short Link",

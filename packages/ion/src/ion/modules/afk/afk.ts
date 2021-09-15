@@ -47,11 +47,12 @@ const AFKHandler = new ModuleHandler(
 		let lastSeenTime = timeAgo.format(afkAt)
 
 		let message = i18n.__(afkMessage || 'modules.afk.defaultAfkMsg', {
-			lastSeenTime: lastSeenTime,
+			lastSeen: lastSeenTime,
 			reason,
 		})
 
 		await event.message.reply({ message, parseMode: 'markdown' })
+		return
 	},
 	{
 		pattern: /.*/,

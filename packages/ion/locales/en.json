@@ -8,7 +8,7 @@
 			"info": "",
 			"started": "You're set to AFK. Good time!",
 			"noLongerAfk": "You are no longer AFK. Here is the report.\n",
-			"defaultAfkMsg": "⌨️ Boss is Away From Keyboard\n🕙 Last seen: {{lastSeenTime}}\n\n**Reason**: {{reason}}"
+			"defaultAfkMsg": "⌨️ Boss is Away From Keyboard\n🕙 Last seen: {{lastSeen}}\n\n**Reason**: {{reason}}"
 		}
 	},
 	"errors": {

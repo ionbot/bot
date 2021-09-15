@@ -7,7 +7,7 @@ import {
 	Stack,
 	Text,
 } from '@chakra-ui/layout'
-import { Switch } from '@chakra-ui/react'
+import { Switch, Textarea } from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import realsync from '../../providers/realsync'
@@ -17,13 +17,8 @@ export const ModuleFields = ({ fields, module, onSave }) => {
 	const keys = Object.keys(fields)
 	const [moduleConfig, setModuleConfig] = useState({ __loading: true })
 
-	const SaveConfig = () => {
-		if (!moduleConfig.__loading) {
-			let finalConfig = moduleConfig
-			delete finalConfig['__loading']
-
-			realsync.service('ion/save-modconf', [module, finalConfig])
-		}
+	const SaveConfig = (name, value) => {
+		realsync.service('ion/save-modconf', [module, { name, value }])
 	}
 
 	const Fetch = async () => {
@@ -32,18 +27,14 @@ export const ModuleFields = ({ fields, module, onSave }) => {
 	}
 
 	useEffect(() => {
-		SaveConfig()
-		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, [moduleConfig])
-
-	useEffect(() => {
 		Fetch()
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
-	const Field = ({ type, field }) => {
+	const Field = ({ type, field, hint }) => {
 		let component = null
-		const i18nkey = `modules.${module}.config.${field}`
-		const i18nkeyInfo = `modules.${module}.config.${field}Info`
+		const fieldName = t(`modules.${module}.config.${field}`)
+		const fieldInfo = t(`modules.${module}.config.${field}Info`)
 
 		switch (type) {
 			case 'switch':
@@ -51,9 +42,9 @@ export const ModuleFields = ({ fields, module, onSave }) => {
 					<Flex alignItems='center'>
 						<Box>
 							<Heading size='md' fontWeight='normal'>
-								{t(i18nkey)}
+								{fieldName}
 							</Heading>
-							<Text fontWeight='normal'>{t(i18nkeyInfo)}</Text>
+							<Text fontWeight='normal'>{fieldInfo}</Text>
 						</Box>
 						<Spacer />
 						<Switch
@@ -63,9 +54,29 @@ export const ModuleFields = ({ fields, module, onSave }) => {
 									...moduleConfig,
 									[field]: !moduleConfig[field],
 								})
+								SaveConfig(field, !moduleConfig[field])
 							}}
 						/>
 					</Flex>
+				)
+				break
+			case 'text':
+				component = (
+					<Box>
+						<Heading size='md' fontWeight='normal'>
+							{fieldName}
+						</Heading>
+						<Text fontWeight='normal'>{fieldInfo}</Text>
+						<Textarea
+							mt={4}
+							placeholder={hint}
+							_focus={{ borderWidth: '2px', borderColor: 'brand.400' }}
+							defaultValue={moduleConfig[field]}
+							onBlur={(e) => {
+								SaveConfig(field, e.target.value)
+							}}
+						/>
+					</Box>
 				)
 				break
 			default:
@@ -78,7 +89,7 @@ export const ModuleFields = ({ fields, module, onSave }) => {
 		<Stack spacing={4}>
 			{keys.map((key) => (
 				<Box key={key}>
-					<Field field={key} type={fields[key].type} />
+					<Field field={key} {...fields[key]} />
 					<Divider mt={4} />
 				</Box>
 			))}

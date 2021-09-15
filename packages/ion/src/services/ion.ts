@@ -10,9 +10,15 @@ export const LoadedModules = () => {
 export const SaveModConfig = async (
 	client: Client,
 	module: string,
-	config: any
+	config: {
+		name: string
+		value: any
+	}
 ) => {
-	await SetConfig(`mod-${module}`, config)
+	const final = await GetConfig(`mod-${module}`)
+	final[config.name] = config.value
+
+	await SetConfig(`mod-${module}`, final)
 	return
 }
 
