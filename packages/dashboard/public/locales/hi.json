@@ -1,0 +1,70 @@
+{
+	"auth": {
+		"fetchProfile": "Thoda der rukiye"
+	},
+	"setup": {
+		"title": "Ion Ka Setup",
+		"subTitle": "my.tailaigram.org/apps se aip kredenshiyal praapt karen aur phorm bharen. yadi aapake paas 2fa saksham hai, to aapako apana paasavard bhee darj karana hoga.",
+		"apiId": "App ID",
+		"apiHash": "App hash",
+		"phoneNumber": "Phone number",
+		"success": "Safal",
+		"successInfo": "Ion should be up and running. You can verify it with the \"ping\" command.",
+		"greetings": "Thanks for choosing Ion, {{name}}."
+	},
+	"common": {
+		"home": "Ghar",
+		"modules": "Modyool",
+		"help": "Madad",
+		"settings": "Samaayojan",
+		"tools": "Upakaran",
+		"verify": "Satyaapit karen",
+		"submit": "Submit",
+		"status": "Status",
+		"config": "Configure",
+		"example": "Example",
+		"command": "Command",
+		"scope": "Scope"
+	},
+	"stats": {
+		"groups": "Groups",
+		"channels": "Channels",
+		"bannedUsers": "Banned Users",
+		"commands": "Commands"
+	},
+	"settings": {
+		"language": "Language",
+		"languageInfo": "Choose your preferred language.",
+		"contributors": "Contributors",
+		"contributorsInfo": "Thanks to anyone who made Ion become what it is."
+	},
+	"scope": {
+		"all": "Works in every chat",
+		"private": "Works only in private",
+		"group": "Works only in group",
+		"channel": "Works only in channels",
+		"groupAndChannel": "Works only in groups and channels"
+	},
+	"modules": {
+		"ping": {
+			"name": "Ping",
+			"info": "This module will help you check if your bot is running or not.",
+			"config": {
+				"displayLatency": "Display Latency",
+				"displayLatencyInfo": "Enable this if you want latency to be displayed in response"
+			}
+		},
+		"afk": {
+			"name": "AFK",
+			"info": "The module helps other know that you are away from keyboard",
+			"config": {
+				"afkMessage": "AFK Message",
+				"afkMessageInfo": "Message to send when you are AFK. You can also include variables in your message, learn more."
+			}
+		},
+		"shortlink": {
+			"name": "Short Link",
+			"info": "Generate short links for any URL quickly"
+		}
+	}
+}
