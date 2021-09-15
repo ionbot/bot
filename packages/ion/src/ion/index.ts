@@ -2,7 +2,7 @@ import { TelegramClient } from 'telegram'
 import { Logger } from 'telegram'
 import { NewMessage, NewMessageEvent } from 'telegram/events'
 import logger from '../logger'
-import { GetConfig } from '../providers/config'
+import { GetConfig, SetConfig } from '../providers/config'
 import { getUserCreds } from '../utils/getUserCred'
 import allModules, { Meta } from './modules'
 
@@ -83,16 +83,25 @@ class Ion {
 							}
 
 							const moduleConfig = await GetConfig(`mod-${meta.id}`)
+
 							handler(this.client as TelegramClient, event, {
 								config: moduleConfig,
 								match,
+								saveConf: async (key: string, value: any) => {
+									// module config
+									const _config = await GetConfig(`mod-${meta.id}`)
+									_config[key] = value
+									console.log('_config', _config)
+									await SetConfig(`mod-${meta.id}`, _config)
+								},
 							})
 						},
 						new NewMessage({
 							...mode,
 							func: (event) => {
 								// validate conditions
-								let match = false
+								let match = false,
+									isValidScope = false
 
 								if (params.pattern) {
 									match = Boolean(event.message.message?.match(params.pattern))
@@ -100,7 +109,23 @@ class Ion {
 									match = this.match(event, params.commands)
 								}
 
-								return match
+								const scopes = Array.isArray(params.scope)
+									? params.scope
+									: [params.scope]
+
+								if (scopes.includes('all')) {
+									isValidScope = true
+								} else {
+									if (
+										(event.isGroup && scopes.includes('group')) ||
+										(event.isPrivate && scopes.includes('private')) ||
+										(event.isChannel && scopes.includes('channel'))
+									) {
+										isValidScope = true
+									}
+								}
+
+								return match && isValidScope
 							},
 						})
 					)

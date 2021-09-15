@@ -1,13 +1,9 @@
 import { Meta } from '..'
-import { AfkHandler } from './handler'
+import handlers from './afk'
 
 const meta: Meta = {
 	id: 'afk',
-	pattern: /afk (.*)/,
-	scope: 'all',
-	mode: 'all',
-
 	fields: {},
 }
 
-export default { meta, handler: AfkHandler }
+export default { meta, handlers }

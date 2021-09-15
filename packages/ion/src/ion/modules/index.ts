@@ -1,5 +1,3 @@
-import { TelegramClient } from 'telegram'
-import { NewMessageEvent } from 'telegram/events'
 import { IonModuleHandler } from '../handlers/Module'
 import afk from './afk'
 import ping from './ping'

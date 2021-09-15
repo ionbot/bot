@@ -1,10 +1,12 @@
 import { TelegramClient } from 'telegram'
 import { NewMessageEvent } from 'telegram/events'
 
+type Scope = 'all' | 'group' | 'private' | 'channel'
+
 export interface IonHandlerParams {
 	commands?: string | string[]
 	pattern?: RegExp
-	scope?: 'all' | 'group' | 'private' | 'channel'
+	scope?: Scope[] | Scope
 	mode?: 'all' | 'outgoing' | 'incoming'
 }
 
@@ -14,6 +16,7 @@ type IonHandler = (
 	extras: {
 		match: any
 		config: any
+		saveConf: (name: string, value: any) => void
 	}
 ) => void
 
