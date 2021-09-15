@@ -1,0 +1,17 @@
+{
+	"modules": {
+		"ping": {
+			"name": "Ping"
+		},
+		"afk": {
+			"name": "AFK",
+			"info": "",
+			"started": "You're set to AFK. Good time!",
+			"noLongerAfk": "You are no longer AFK. Here is the report.\n",
+			"defaultAfkMsg": "⌨️ Boss is Away From Keyboard\n🕙 Last seen: {{lastSeenTime}}\n\n**Reason**: {{reason}}"
+		}
+	},
+	"errors": {
+		"alreadyAfk": "You are already AFK"
+	}
+}
