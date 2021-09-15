@@ -36,7 +36,7 @@
 		"language": "Language",
 		"languageInfo": "Choose your preferred language.",
 		"contributors": "Contributors",
-		"contributorsInfo": "Thanks to anyone who made Ion become what it is."
+		"contributorsInfo": "Thanks to anyone who brought Ion here."
 	},
 	"scope": {
 		"all": "Works in every chat",
@@ -50,21 +50,21 @@
 			"name": "Ping",
 			"info": "This module will help you check if your bot is running or not.",
 			"config": {
-				"displayLatency": "Display Latency",
-				"displayLatencyInfo": "Enable this if you want latency to be displayed in response"
+				"displayLatency": "Display latency",
+				"displayLatencyInfo": "Enable this if you want latency to be displayed in response."
 			}
 		},
 		"afk": {
 			"name": "AFK",
-			"info": "The module helps other know that you are away from keyboard",
+			"info": "Let others know that you are away from keyboard.",
 			"config": {
-				"afkMessage": "AFK Message",
+				"afkMessage": "AFK message",
 				"afkMessageInfo": "Message to send when you are AFK. You can also include variables in your message, learn more."
 			}
 		},
 		"shortlink": {
-			"name": "Short Link",
-			"info": "Generate short links for any URL quickly"
+			"name": "Link Shortener",
+			"info": "Generate shortcuts for any URL quickly."
 		}
 	}
 }

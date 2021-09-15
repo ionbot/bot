@@ -8,7 +8,12 @@ import { connect } from 'mongoose'
 import { RealSync } from '@realsync/server'
 import { AuthService } from './services/auth'
 import { UserProfile } from './services/user'
-import { LoadedModules, LoadModConfig, SaveModConfig } from './services/ion'
+import {
+	IonStats,
+	LoadedModules,
+	LoadModConfig,
+	SaveModConfig,
+} from './services/ion'
 import ion from './providers/ion'
 import logger from './logger'
 
@@ -39,6 +44,7 @@ realsync.register('ion/version', () => version)
 realsync.register('ion/loaded-modules', LoadedModules)
 realsync.register('ion/save-modconf', SaveModConfig)
 realsync.register('ion/load-modconf', LoadModConfig)
+realsync.register('ion/stats', IonStats)
 
 export interface IonConfig {
 	port: number

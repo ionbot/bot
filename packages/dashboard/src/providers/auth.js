@@ -19,6 +19,8 @@ const AuthProvider = ({ children }) => {
 					setProfile({ ...userProfile })
 
 					const version = await realsync.service('ion/version')
+					const stats = await realsync.service('ion/stats')
+					console.log('stats', stats)
 
 					UserStore.update((s) => {
 						s.profile = userProfile
