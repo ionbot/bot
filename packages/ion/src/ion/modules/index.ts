@@ -1,5 +1,6 @@
 import { TelegramClient } from 'telegram'
 import { NewMessageEvent } from 'telegram/events'
+import { IonModuleHandler } from '../handlers/Module'
 import afk from './afk'
 import ping from './ping'
 import shortlink from './shortlink'
@@ -7,19 +8,13 @@ import shortlink from './shortlink'
 export interface Meta {
 	id: string
 	fields: any
-
-	commands?: string | string[]
-	pattern?: RegExp
-	scope?: 'all' | 'group' | 'private' | 'channel'
-	mode?: 'all' | 'outgoing' | 'incoming'
-
 	examples?: any[]
 }
 
-interface Module {
+interface IonModule {
 	meta: Meta
-	handler: (client: TelegramClient, event: NewMessageEvent, config?: any) => any
+	handlers: IonModuleHandler[]
 }
 
-let allModules: Module[] = [ping, afk, shortlink]
+let allModules: IonModule[] = [ping, shortlink, afk]
 export default allModules

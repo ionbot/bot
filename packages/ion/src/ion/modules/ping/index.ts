@@ -1,11 +1,8 @@
 import { Meta } from '..'
-import { PingHandler } from './handler'
+import { PingHandler } from './ping'
 
 const meta: Meta = {
 	id: 'ping',
-	commands: 'ping',
-	scope: 'group',
-	mode: 'outgoing',
 
 	fields: {
 		displayLatency: {
@@ -17,4 +14,4 @@ const meta: Meta = {
 	examples: ['.ping'],
 }
 
-export default { meta, handler: PingHandler }
+export default { meta, handlers: [PingHandler] }
