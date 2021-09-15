@@ -91,7 +91,6 @@ class Ion {
 									// module config
 									const _config = await GetConfig(`mod-${meta.id}`)
 									_config[key] = value
-									console.log('_config', _config)
 									await SetConfig(`mod-${meta.id}`, _config)
 								},
 							})
