@@ -2,6 +2,7 @@ import { TelegramClient } from 'telegram'
 import { Logger } from 'telegram'
 import { NewMessage, NewMessageEvent } from 'telegram/events'
 import logger from '../logger'
+import { GetConfig } from '../providers/config'
 import { getUserCreds } from '../utils/getUserCred'
 import allModules, { Meta } from './modules'
 
@@ -59,39 +60,51 @@ class Ion {
 			this.isRunning = true
 
 			allModules.map((module) => {
-				const { meta, handler } = module
-				const mode = {
-					outgoing: meta.mode === 'outgoing',
-					icoming: meta.mode === 'incoming',
-				}
+				const { meta, handlers } = module
 
-				this.loadedModules.push(meta)
+				handlers.forEach(({ handler, params }) => {
+					params.mode = params.mode || 'outgoing'
+					params.scope = params.scope || 'all'
 
-				this.client?.addEventHandler(
-					async (event: NewMessageEvent) => {
-						// attach handler to the module
-						let match: any = ''
-						if (meta.pattern) {
-							match = event.message.message?.match(meta.pattern)
-						}
-						handler(this.client as TelegramClient, event, match)
-					},
-					new NewMessage({
-						...mode,
-						func: (event) => {
-							// validate conditions
-							let match = false
+					const mode = {
+						outgoing: params.mode === 'outgoing',
+						icoming: params.mode === 'incoming',
+					}
 
-							if (meta.pattern) {
-								match = Boolean(event.message.message?.match(meta.pattern))
-							} else if (meta.commands) {
-								match = this.match(event, meta.commands)
+					this.loadedModules.push(meta)
+
+					this.client?.addEventHandler(
+						async (event: NewMessageEvent) => {
+							// attach handler to the module
+							let match: any = ''
+
+							if (params.pattern) {
+								match = event.message.message?.match(params.pattern)
 							}
 
-							return match
+							const moduleConfig = await GetConfig(`mod-${meta.id}`)
+							handler(this.client as TelegramClient, event, {
+								config: moduleConfig,
+								match,
+							})
 						},
-					})
-				)
+						new NewMessage({
+							...mode,
+							func: (event) => {
+								// validate conditions
+								let match = false
+
+								if (params.pattern) {
+									match = Boolean(event.message.message?.match(params.pattern))
+								} else if (params.commands) {
+									match = this.match(event, params.commands)
+								}
+
+								return match
+							},
+						})
+					)
+				})
 			})
 		}
 	}
