@@ -5,7 +5,7 @@ import { languages } from '../../config/languages'
 
 export const LanguagePicker = () => {
 	const { language } = i18next
-	let curLang = languages.find((lang) => lang.code === language)
+	let curLang = languages[language]
 
 	return (
 		<Menu autoSelect={false} placement='left-start'>
@@ -18,12 +18,9 @@ export const LanguagePicker = () => {
 				{curLang.name}
 			</MenuButton>
 			<MenuList>
-				{languages.map((lang) => (
-					<MenuItem
-						key={lang.code}
-						onClick={() => i18next.changeLanguage(lang.code)}
-					>
-						{lang.name}
+				{Object.keys(languages).map((lang) => (
+					<MenuItem key={lang} onClick={() => i18next.changeLanguage(lang)}>
+						{languages[lang].name}
 					</MenuItem>
 				))}
 			</MenuList>
