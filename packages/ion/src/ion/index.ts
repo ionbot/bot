@@ -61,6 +61,7 @@ class Ion {
 
 			allModules.map((module) => {
 				const { meta, handlers } = module
+				this.loadedModules.push(meta)
 
 				handlers.forEach(({ handler, params }) => {
 					params.mode = params.mode || 'outgoing'
@@ -70,8 +71,6 @@ class Ion {
 						outgoing: params.mode === 'outgoing',
 						icoming: params.mode === 'incoming',
 					}
-
-					this.loadedModules.push(meta)
 
 					this.client?.addEventHandler(
 						async (event: NewMessageEvent) => {
