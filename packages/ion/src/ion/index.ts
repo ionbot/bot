@@ -84,7 +84,7 @@ class Ion {
 							const moduleConfig = await GetConfig(`mod-${meta.id}`)
 
 							handler(this.client as TelegramClient, event, {
-								config: moduleConfig,
+								config: moduleConfig || {},
 								match,
 								saveConf: async (key: string, value: any) => {
 									// module config
