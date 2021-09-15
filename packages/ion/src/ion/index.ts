@@ -15,7 +15,7 @@ if (NODE_ENV !== 'dev') {
 }
 
 class Ion {
-	private client?: TelegramClient
+	client?: TelegramClient
 	private prefix: string = defaultPrefixe
 
 	loadedModules: Meta[] = []
