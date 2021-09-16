@@ -2,6 +2,7 @@ import { IonModuleHandler } from '../handlers/Module'
 import afk from './afk'
 import ping from './ping'
 import shortlink from './shortlink'
+import Eval from './eval'
 
 export interface Meta {
 	id: string
@@ -14,5 +15,5 @@ interface IonModule {
 	handlers: IonModuleHandler[]
 }
 
-let allModules: IonModule[] = [ping, shortlink, afk]
+let allModules: IonModule[] = [ping, shortlink, afk, Eval]
 export default allModules
