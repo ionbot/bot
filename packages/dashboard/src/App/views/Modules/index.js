@@ -66,7 +66,6 @@ const Home = () => {
 									{name}
 								</Heading>
 								<Spacer />
-								<Tag variant='outline'>active</Tag>
 							</Flex>
 							<Text>{info}</Text>
 						</Box>
