@@ -31,6 +31,9 @@ const Home = () => {
 			>
 				{modules.map((module) => {
 					const { id } = module
+					if (id === 'common') {
+						return null
+					}
 					const name = t(`modules.${id}.name`)
 					const info = t(`modules.${id}.info`)
 
