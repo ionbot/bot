@@ -12,4 +12,4 @@ jobs:
         with:
           to: -1001456201779
           token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: The ${{ github.event_name }} event triggered
+          args: 🚀 New version of Ion is released ${{ github.event.release.tag_name  }}
