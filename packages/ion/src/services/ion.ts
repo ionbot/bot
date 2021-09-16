@@ -28,14 +28,28 @@ export const LoadModConfig = async (client: Client, module: string) => {
 	return modConf
 }
 
+let stats: any = {}
 export const IonStats = async () => {
-	const totalBanned: any = await ion.client?.invoke(
+	if (stats.blockedUsers) {
+		return stats
+	}
+
+	const totalBlocked: any = await ion.client?.invoke(
 		new Api.contacts.GetBlocked({})
 	)
+	stats.blockedUsers = totalBlocked?.count || 0
 
-	console.log('toalChannels', toalChannels)
+	const inActiveChannels = await ion.client?.invoke(
+		new Api.channels.GetInactiveChannels()
+	)
+	stats.inActiveChannels = inActiveChannels
 
-	return totalBanned?.count
+	const result = await ion.client?.invoke(
+		new Api.messages.GetAllChats({
+			exceptIds: [],
+		})
+	)
+	stats.totalChats = result?.chats.length
+
+	return stats
 }
-
-setTimeout(IonStats, 2000)

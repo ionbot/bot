@@ -5,6 +5,9 @@ export const languages = {
 	es: {
 		name: 'Spanish',
 	},
+	hi: {
+		name: 'Hindi',
+	},
 	ckb: {
 		name: 'Central Kurdish',
 		rtl: true,
