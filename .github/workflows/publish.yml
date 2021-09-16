@@ -35,15 +35,3 @@ jobs:
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-
-  notify:
-    name: Telegram Notifier
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - name: send custom message with args
-        uses: appleboy/telegram-action@master
-        with:
-          to: -1001456201779
-          token: ${{ secrets.TELEGRAM_TOKEN }}
-          args: 🎉 New Version of Ion is up
