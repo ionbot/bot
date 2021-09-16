@@ -34,3 +34,10 @@ jobs:
           npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - uses: appleboy/telegram-action@master
+      - name: notify group about new update
+        with:
+          to: -1001456201779
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          args: 🎉 New version of Ion is out
