@@ -28,8 +28,8 @@
 	},
 	"stats": {
 		"groups": "Groups",
-		"channels": "Channels",
-		"bannedUsers": "Banned Users",
+		"inActiveChannels": "Inactive Channels",
+		"blockedUsers": "Blocked Users",
 		"commands": "Commands"
 	},
 	"settings": {

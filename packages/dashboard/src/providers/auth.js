@@ -20,15 +20,16 @@ const AuthProvider = ({ children }) => {
 
 					const version = await realsync.service('ion/version')
 					const stats = await realsync.service('ion/stats')
-					console.log('stats', stats)
 
 					UserStore.update((s) => {
 						s.profile = userProfile
 						s.ionVersion = version
+						s.stats = stats
 					})
 				}
 			})
 			.catch((err) => {
+				err = err.toString()
 				if (err.includes('ION_NOT_SETUP')) {
 					setProfile({ loading: false })
 				}

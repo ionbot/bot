@@ -9,9 +9,11 @@ import {
 } from '@chakra-ui/layout'
 import { useTranslation } from 'react-i18next'
 import { BiGroup, BiChalkboard, BiCode, BiUserMinus } from 'react-icons/bi'
+import { UserStore } from '../../store/user'
 
 const Home = () => {
 	const { t } = useTranslation()
+	const stats = UserStore.useState((s) => s.stats)
 
 	const Statistic = ({ title, value, icon, color }) => (
 		<Flex rounded='2xl' p={4} alignItems='center'>
@@ -44,21 +46,21 @@ const Home = () => {
 				>
 					<Statistic
 						title={t('stats.groups')}
-						value={84}
+						value={stats.totalChats || 0}
 						icon={<BiGroup />}
 						color='teal'
 					/>
 
 					<Statistic
-						title={t('stats.channels')}
-						value={134}
+						title={t('stats.inActiveChannels')}
+						value={stats.inActiveChannels?.chats.length}
 						icon={<BiChalkboard />}
 						color='orange'
 					/>
 
 					<Statistic
-						title={t('stats.bannedUsers')}
-						value={134}
+						title={t('stats.blockedUsers')}
+						value={stats.blockedUsers}
 						icon={<BiUserMinus />}
 						color='red'
 					/>
