@@ -3,6 +3,7 @@ import { NodeVM, VMScript } from 'vm2'
 
 const Eval = new ModuleHandler(
 	async (client, event, extras) => {
+		let message = ''
 		const vm = new NodeVM({
 			console: 'inherit',
 			sandbox: { event },
@@ -24,10 +25,12 @@ const Eval = new ModuleHandler(
 
 			result = String(result)
 
-			await event.message.edit({ text: result, parseMode: 'markdown' })
+			message = `Code: \`${code}\`\n\nResult: \`${result}\``
 		} catch (err: any) {
-			await event.message.edit({ text: err.toString(), parseMode: 'markdown' })
+			message = `Code: \`${code}\`\n\nError: \`${err.toString()}\``
 		}
+
+		await event.message.edit({ text: message, parseMode: 'markdown' })
 	},
 	{ pattern: /eval (.*)/ }
 )
