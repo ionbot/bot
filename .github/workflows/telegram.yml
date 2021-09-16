@@ -1,0 +1,15 @@
+name: telegram message
+on: [push]
+
+jobs:
+  build:
+    name: Notify Chat
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: send message in chat about the event
+        uses: appleboy/telegram-action@master
+        with:
+          to: -1001456201779
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          args: The ${{ github.event_name }} event triggered
