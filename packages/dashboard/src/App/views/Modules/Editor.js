@@ -86,7 +86,9 @@ export const ModuleEditor = ({ onClose, isOpen, module }) => {
 												p={2}
 												rounded='xl'
 												fontSize='xl'
+												fontFamily='monospace'
 												borderWidth='1px'
+												shadow='md'
 											>
 												{example}
 											</Box>

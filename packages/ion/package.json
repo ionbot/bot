@@ -5,6 +5,7 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+		"start": "ts-node src/index.ts",
 		"build": "tsc -p ."
 	},
 	"bin": {
@@ -36,6 +37,7 @@
 		"koa-static": "^5.0.0",
 		"mongoose": "^6.0.5",
 		"telegram": "^1.8.13",
+		"vm2": "^3.9.3",
 		"winston": "^3.3.3"
 	},
 	"publishConfig": {

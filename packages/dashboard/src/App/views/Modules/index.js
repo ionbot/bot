@@ -31,6 +31,9 @@ const Home = () => {
 			>
 				{modules.map((module) => {
 					const { id } = module
+					if (id === 'common') {
+						return null
+					}
 					const name = t(`modules.${id}.name`)
 					const info = t(`modules.${id}.info`)
 
@@ -60,13 +63,12 @@ const Home = () => {
 							<Flex alignItems='center'>
 								<Heading
 									size='lg'
-									bgGradient='linear(to-r, blue.200,purple.200)'
+									bgGradient='linear(to-r, orange.400, red.300)'
 									bgClip='text'
 								>
 									{name}
 								</Heading>
 								<Spacer />
-								<Tag variant='outline'>active</Tag>
 							</Flex>
 							<Text>{info}</Text>
 						</Box>
