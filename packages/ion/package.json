@@ -36,6 +36,7 @@
 		"koa-static": "^5.0.0",
 		"mongoose": "^6.0.5",
 		"telegram": "^1.8.13",
+		"vm2": "^3.9.3",
 		"winston": "^3.3.3"
 	},
 	"publishConfig": {
