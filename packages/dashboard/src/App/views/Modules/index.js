@@ -60,7 +60,7 @@ const Home = () => {
 							<Flex alignItems='center'>
 								<Heading
 									size='lg'
-									bgGradient='linear(to-r, blue.200,purple.200)'
+									bgGradient='linear(to-r, yellow.400, red.200)'
 									bgClip='text'
 								>
 									{name}
