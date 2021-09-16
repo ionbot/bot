@@ -36,7 +36,7 @@
 		"javascript-time-ago": "^2.3.8",
 		"koa-static": "^5.0.0",
 		"mongoose": "^6.0.5",
-		"telegram": "^1.8.13",
+		"telegram": "^1.8.14",
 		"vm2": "^3.9.3",
 		"winston": "^3.3.3"
 	},
