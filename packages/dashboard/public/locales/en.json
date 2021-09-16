@@ -65,6 +65,10 @@
 		"shortlink": {
 			"name": "Link Shortener",
 			"info": "Generate shortcuts for any URL quickly."
+		},
+		"eval": {
+			"name": "Eval",
+			"info": "Execute arbitrary JavaScript codes and get the result, supports asynchronouse functions."
 		}
 	}
 }
