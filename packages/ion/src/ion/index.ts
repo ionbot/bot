@@ -7,10 +7,10 @@ import { getUserCreds } from '../utils/getUserCred'
 import allModules, { Meta } from './modules'
 
 const { version } = require('../../package.json')
-const { NODE_ENV } = process.env
+const { NODE_ENV, DEBUG } = process.env
 const defaultPrefixe = '.'
 
-if (NODE_ENV !== 'dev') {
+if (NODE_ENV !== 'dev' && !DEBUG) {
 	Logger.setLevel('none')
 }
 
