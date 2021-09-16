@@ -69,6 +69,14 @@
 		"eval": {
 			"name": "Eval",
 			"info": "Execute arbitrary JavaScript codes and get the result, supports asynchronouse functions."
+		},
+		"spam": {
+			"name": "Spam",
+			"info": "Send repetitive messages to anyone, make sure to not spam frequently.",
+			"config": {
+				"waitBeforeSend": "Sleep",
+				"waitBeforeSendInfo": "Adjust the time to wait before sending next message"
+			}
 		}
 	}
 }

@@ -7,7 +7,15 @@ import {
 	Stack,
 	Text,
 } from '@chakra-ui/layout'
-import { Switch, Textarea } from '@chakra-ui/react'
+import {
+	Switch,
+	Textarea,
+	NumberInput,
+	NumberInputField,
+	NumberInputStepper,
+	NumberIncrementStepper,
+	NumberDecrementStepper,
+} from '@chakra-ui/react'
 import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import realsync from '../../providers/realsync'
@@ -31,7 +39,8 @@ export const ModuleFields = ({ fields, module, onSave }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
-	const Field = ({ type, field, hint }) => {
+	const Field = (data) => {
+		const { type, field, hint } = data
 		let component = null
 		const fieldName = t(`modules.${module}.config.${field}`)
 		const fieldInfo = t(`modules.${module}.config.${field}Info`)
@@ -76,6 +85,32 @@ export const ModuleFields = ({ fields, module, onSave }) => {
 								SaveConfig(field, e.target.value)
 							}}
 						/>
+					</Box>
+				)
+				break
+			case 'slider':
+				component = (
+					<Box>
+						<Heading size='md' fontWeight='normal'>
+							{fieldName}
+						</Heading>
+						<Text fontWeight='normal'>{fieldInfo}</Text>
+						<NumberInput
+							mt={4}
+							defaultValue={0.3}
+							min={data.min}
+							max={data.max}
+							step={0.1}
+							onBlur={(e) => {
+								SaveConfig(field, e.target.value)
+							}}
+						>
+							<NumberInputField />
+							<NumberInputStepper>
+								<NumberIncrementStepper />
+								<NumberDecrementStepper />
+							</NumberInputStepper>
+						</NumberInput>
 					</Box>
 				)
 				break
