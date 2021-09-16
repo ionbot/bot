@@ -5,6 +5,7 @@
 	"license": "MIT",
 	"scripts": {
 		"dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+		"start": "ts-node src/index.ts",
 		"build": "tsc -p ."
 	},
 	"bin": {
